@@ -57,6 +57,38 @@ Yuzu 계열은 우클릭 → Open Mod Data Location, 실기(Atmosphère)는
 - 인명·지명은 국립국어원 일본어 표기법을 따릅니다.
 - 기계 번역이 포함되어 일부 문장은 어색하거나 오역이 있을 수 있습니다.
 
+## 다운로드
+- [Releases](../../releases/latest) 에서 최신 zip을 받으세요.
+
+---
+
+## 저장소 구성 (개발/기여용)
+
+이 저장소에는 **패치를 만드는 도구와 번역 데이터**가 함께 들어 있습니다.
+게임 원본 데이터·복호화 키는 포함하지 않습니다.
+
+```
+tools/            빌드 파이프라인 (Python) — 포맷 디코드/인코드, 폰트 확장,
+                  MSG 재조립, 이미지 로컬라이즈, 패키징
+  extractor/      병합 romfs 추출기 (LibHac, .NET 6) — 키는 본인 것 사용
+  scratch/        1회성 디버그/수정 스크립트 (참고용)
+translation/
+  source_jp/      추출한 원문 문자열 배치 (번역 키) 529개
+  korean/         index로 짝지어진 한국어 번역 529개
+docs/
+  FORMATS.md      리버스 엔지니어링한 파일 포맷 분석 (LINKDATA/KT/NSO/MSG/G1N/G1T)
+  BUILD.md        빌드 가이드
+```
+
+빌드 방법은 [docs/BUILD.md](docs/BUILD.md), 포맷 분석은 [docs/FORMATS.md](docs/FORMATS.md) 참고.
+
+### 기여
+번역 개선은 `translation/korean/` 의 `t` 값을 고쳐 PR 해주세요.
+(서식 토큰 `%s %d \n [bNNN]`, `<ESC>C?` 컬러 태그는 보존 필수)
+
 ## 라이선스 / 고지
-- 팬 번역이며 코에이 테크모와 무관합니다. 게임 원본은 포함되어 있지 않습니다.
-- 폰트: 서울서체(SeoulHangang), 서울특별시 무료 배포.
+- **팬 번역이며 코에이 테크모와 무관합니다. 게임 원본 데이터·에셋은 포함되어 있지 않습니다.**
+- 저장소의 도구 코드는 자유롭게 사용하셔도 됩니다.
+- `translation/source_jp/` 의 원문은 번역 작업용 참조 키이며, 게임 저작권은 코에이 테크모에 있습니다.
+- 폰트: 서울서체(SeoulHangang, 서울특별시 무료 배포) — 저장소에는 포함하지 않으니 별도로 받으세요.
+- 게임 복호화 키(prod.keys/title.keys)와 게임 원본 파일은 이 저장소에 없으며, 커밋하지 마세요.

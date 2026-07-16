@@ -1,0 +1,36 @@
+# --- secrets: NEVER commit ---
+*.keys
+prod.keys
+title.keys
+title.keys.txt
+
+# --- game originals / extracted assets: NOT distributed ---
+*.nca
+*.nsp
+*.xci
+*.bin
+*.n16
+*.aszbin
+*.stbin
+*.g1t
+res_lang*.bin
+*.dds
+
+# --- build artifacts ---
+__pycache__/
+*.pyc
+bin/
+obj/
+tools/extractor/bin/
+tools/extractor/obj/
+out/
+*.zip
+
+# --- fonts (redistribute per their own license, not here) ---
+*.ttf
+*.otf
+
+# --- scratch images / previews ---
+*.png
+*.jpg
+!docs/**/*.png

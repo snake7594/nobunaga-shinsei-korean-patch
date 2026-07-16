@@ -1,0 +1,245 @@
+{
+"cat": "dialog",
+"items": [
+{
+"i": 0,
+"t": "<ESC>CB龍造寺家<ESC>CZ当主・<ESC>CA龍造寺隆信<ESC>CZは、\\n<ESC>CB大友<ESC>CZとの戦いは決意していたものの、\\n<ESC>CA直茂<ESC>CZの進言する夜襲には賛同しかねていた。"
+},
+{
+"i": 1,
+"t": "<ESC>CC三増峠<ESC>CZを思い出せ…\\nおぬしらが束になっても<ESC>CA信玄<ESC>CZ入道の術策には\\n敵わぬ。あれは敵に回してはならぬ。"
+},
+{
+"i": 2,
+"t": "<ESC>CC三木<ESC>CZ城主・<ESC>CA別所長治<ESC>CZが\\n<ESC>CB毛利<ESC>CZに通じて謀反を起こしたとのこと。"
+},
+{
+"i": 3,
+"t": "<ESC>CC三木城<ESC>CZは…落ちたか？"
+},
+{
+"i": 4,
+"t": "<ESC>CC三河<ESC>CZを支配して戦国大名として自立し\\nひとかたの勢力として認められる存在\\nとなった<ESC>CA松平家康<ESC>CZ――"
+},
+{
+"i": 5,
+"t": "<ESC>CC三河<ESC>CZ・<ESC>CC岡崎城<ESC>CZ―"
+},
+{
+"i": 6,
+"t": "<ESC>CC三河国<ESC>CZ、そして<ESC>CB松平家<ESC>CZはたちまち\\n麻のごとく乱れたのである。"
+},
+{
+"i": 7,
+"t": "<ESC>CC三河国<ESC>CZ・<ESC>CC吉田宿<ESC>CZ―"
+},
+{
+"i": 8,
+"t": "<ESC>CC上州<ESC>CZ<ESC>CB横瀬氏<ESC>CZは、<ESC>CC坂東<ESC>CZ源氏の名門<ESC>CB岩松家<ESC>CZの\\n家老を代々務めてきた家である。"
+},
+{
+"i": 9,
+"t": "<ESC>CC上州<ESC>CZでは<ESC>CA滝川一益<ESC>CZが<ESC>CB織田<ESC>CZに反旗を翻した\\n<ESC>CB北条家<ESC>CZとの戦に破れ本拠の<ESC>CC伊勢<ESC>CZへと逃亡。"
+},
+{
+"i": 10,
+"t": "<ESC>CC上州<ESC>CZを頼む…\\n<ESC>CC沼田<ESC>CZは…おぬしの手にある…"
+},
+{
+"i": 11,
+"t": "<ESC>CC上方<ESC>CZと<ESC>CC関東<ESC>CZを結ぶ<ESC>CC東海道<ESC>CZに沿った地域は\\n先進的な大名が現れることも多く\\n勢力争いもまた熾烈なものとなったが…"
+},
+{
+"i": 12,
+"t": "<ESC>CC上月<ESC>CZを<ESC>CB尼子<ESC>CZに譲れ、と？\\nその意図は？"
+},
+{
+"i": 13,
+"t": "<ESC>CC上月城<ESC>CZは<ESC>CC播磨<ESC>CZ・<ESC>CC備前<ESC>CZ・<ESC>CC美作<ESC>CZの\\n三国を見据える要衝にございます。"
+},
+{
+"i": 14,
+"t": "<ESC>CC上田城<ESC>CZの基本的な構造はこの後も\\n変わることはなく、城だけで大軍を\\n跳ね返せるものにはならなかったが…"
+},
+{
+"i": 15,
+"t": "<ESC>CC上野<ESC>CZと<ESC>CC信濃<ESC>CZ北部に在る<ESC>CB真田<ESC>CZは、まずは\\n<ESC>CA滝川<ESC>CZを破った<ESC>CB北条<ESC>CZに従い、\\n領土を安堵させる。"
+},
+{
+"i": 16,
+"t": "<ESC>CC上野<ESC>CZの北部は<ESC>CB[bs1871]<ESC>CZに従属した<ESC>CB真田<ESC>CZが\\n押さえているという状況となる。"
+},
+{
+"i": 17,
+"t": "<ESC>CC下総<ESC>CZの大名・<ESC>CA結城政勝<ESC>CZは嫡男の夭折により、\\n<ESC>CB小山家<ESC>CZを継いでいた弟・<ESC>CA高朝<ESC>CZの三男・<ESC>CA晴朝<ESC>CZを\\n養子に迎えることとなった。"
+},
+{
+"i": 18,
+"t": "<ESC>CC下野<ESC>CZの旧家<ESC>CB小山氏<ESC>CZと、<ESC>CC下総<ESC>CZの名族<ESC>CB結城氏<ESC>CZは\\nこの頃、<ESC>CA政勝<ESC>CZ・<ESC>CA高朝<ESC>CZ兄弟の絆によって\\nほぼ一体化していた。"
+},
+{
+"i": 19,
+"t": "<ESC>CC与板城<ESC>CZ・<ESC>CB直江家<ESC>CZ邸宅―"
+},
+{
+"i": 20,
+"t": "<ESC>CC中国<ESC>CZで<ESC>CB毛利<ESC>CZと対陣していたはずの彼は\\n電撃的に和議を結ぶと、主の仇を討つべく\\n<ESC>CC摂津<ESC>CZにまで迫っていたのである…"
+},
+{
+"i": 21,
+"t": "<ESC>CC丹波<ESC>CZは聞きしに勝る難治の地。\\nしかし<ESC>CA内藤<ESC>CZの家名を得たことで、\\nようやく統治し得るであろう…"
+},
+{
+"i": 22,
+"t": "<ESC>CC丹波<ESC>CZ攻略を任された<ESC>CA長頼<ESC>CZは、\\n丹波守護代・<ESC>CA内藤国貞<ESC>CZの娘を娶り、\\n<ESC>CB内藤氏<ESC>CZの家督を継承した。"
+},
+{
+"i": 23,
+"t": "<ESC>CC丹波<ESC>CZ経略、<ESC>CB本願寺<ESC>CZ攻撃にも\\n大きな影響を及ぼす、\\n<ESC>CB織田軍<ESC>CZ全体に関わる重要事であった。"
+},
+{
+"i": 24,
+"t": "<ESC>CC九州<ESC>CZの諸大名にわしの国分け案を提示し\\n従わぬ者は成敗してくれよう。"
+},
+{
+"i": 25,
+"t": "<ESC>CC京<ESC>CZ…天下、か。\\nそれもよいかもしれぬ。"
+},
+{
+"i": 26,
+"t": "<ESC>CC京<ESC>CZから<ESC>CC美濃<ESC>CZへ赴いた油商人が、守護<ESC>CB土岐氏<ESC>CZに\\n取り入って有力武将となり、その子<ESC>CA[bm924]<ESC>CZが\\n<ESC>CB土岐氏<ESC>CZを追放して戦国大名となった。"
+},
+{
+"i": 27,
+"t": "<ESC>CC京<ESC>CZから追放され、諸国を放浪した<ESC>CA足利義昭<ESC>CZは\\n<ESC>CA信長<ESC>CZに対抗しうる勢力として\\n<ESC>CB毛利家<ESC>CZに、何度も保護を依頼していた。"
+},
+{
+"i": 28,
+"t": "<ESC>CC京<ESC>CZに上ることなく逝くは我が心残り…\\nされど、<ESC>CB武田<ESC>CZにはまだおぬしがおる。\\n<ESC>CB武田<ESC>CZの先駆け…赤備えがおる…"
+},
+{
+"i": 29,
+"t": "<ESC>CC京<ESC>CZに取って返す！\\n<ESC>CA光秀<ESC>CZを、<ESC>CA信長<ESC>CZ様の仇を討ち、\\n後継者たる男と天下に認めさせる！"
+},
+{
+"i": 30,
+"t": "<ESC>CC京<ESC>CZに滞在している最中、<ESC>CA信長<ESC>CZ一行は\\n謎の刺客に狙撃されたという逸話も伝わる。"
+},
+{
+"i": 31,
+"t": "<ESC>CC京<ESC>CZへ戻った<ESC>CA義昭<ESC>CZは出家し「<ESC>CA昌山<ESC>CZ」と号する。\\n朝廷より准三后の称号を賜った後、\\n<ESC>CA秀吉<ESC>CZのお伽衆として余生を送ったという。"
+},
+{
+"i": 32,
+"t": "<ESC>CC京<ESC>CZを去って十余年、未だ征夷大将軍を\\n名乗り続ける<ESC>CC鞆<ESC>CZ御所こと<ESC>CA足利義昭<ESC>CZと\\n面会するためである。"
+},
+{
+"i": 33,
+"t": "<ESC>CC京<ESC>CZ・<ESC>CA細川藤孝<ESC>CZ邸宅―"
+},
+{
+"i": 34,
+"t": "<ESC>CC京<ESC>CZ・<ESC>CC鎌倉<ESC>CZの争いに巻き込まれ兵を出しても\\n特に何の見返りを受けたこともなく、\\n歴代<ESC>CB今川家<ESC>CZの当主の不満に繋がっていた。"
+},
+{
+"i": 35,
+"t": "<ESC>CC人取橋<ESC>CZの戦いは、<ESC>CB佐竹<ESC>CZ・<ESC>CB蘆名<ESC>CZ連合軍が\\n<ESC>CB伊達<ESC>CZ軍に対して終始猛攻を加え続ける\\nという展開で、日没を迎えようとしていた。"
+},
+{
+"i": 36,
+"t": "<ESC>CC伊勢国<ESC>CZ・<ESC>CC長島城<ESC>CZ―"
+},
+{
+"i": 37,
+"t": "<ESC>CC佐土原<ESC>CZを囲み、\\n彼の者たちの息の根を止めてくれましょう！"
+},
+{
+"i": 38,
+"t": "<ESC>CC信州<ESC>CZにて<ESC>CB武田<ESC>CZと覇を競った<ESC>CB村上家<ESC>CZは、\\n大名家として滅びた後、<ESC>CB上杉家<ESC>CZの元で\\n新たな門出を迎えたのであった。"
+},
+{
+"i": 39,
+"t": "<ESC>CC信州<ESC>CZは我らの土地ぞ。\\nこのまま<ESC>CA[bm1251]<ESC>CZの思いどおりにはさせぬ！"
+},
+{
+"i": 40,
+"t": "<ESC>CC信州<ESC>CZ北部は当家にとって今後重要となる地。\\nその地を把握するため、<ESC>CB高坂<ESC>CZの名跡を\\nわしが最も信頼する者に継がせたいのだ。"
+},
+{
+"i": 41,
+"t": "<ESC>CC信濃<ESC>CZなどいつでも奪える。\\nこれより三日、城下での音曲を禁じよ！\\n次の評定はその後に行う。"
+},
+{
+"i": 42,
+"t": "<ESC>CC信濃<ESC>CZに根付くおぬしこそ<ESC>CC沼田<ESC>CZの主に相応しい\\n<ESC>CA幸隆<ESC>CZ、いずれおぬしが<ESC>CC沼田<ESC>CZを奪い\\n<ESC>CC上州<ESC>CZ経略の拠点とするがよかろう。"
+},
+{
+"i": 43,
+"t": "<ESC>CC信濃<ESC>CZの諸勢力の中で、\\n反<ESC>CB武田<ESC>CZの旗手となったのは、古くから\\n<ESC>CC信州<ESC>CZを支配してきた<ESC>CB村上氏<ESC>CZの<ESC>CA義清<ESC>CZだった。"
+},
+{
+"i": 44,
+"t": "<ESC>CC信濃<ESC>CZを預かる<ESC>CA森長可<ESC>CZも人質を取ることで\\nなんとか<ESC>CC美濃<ESC>CZへ逃げ帰るあり様であった。"
+},
+{
+"i": 45,
+"t": "<ESC>CC信濃<ESC>CZ・<ESC>CC上田城<ESC>CZ―"
+},
+{
+"i": 46,
+"t": "<ESC>CC信濃<ESC>CZ・<ESC>CC駒場<ESC>CZ付近―"
+},
+{
+"i": 47,
+"t": "<ESC>CC信貴山城<ESC>CZ・<ESC>CA松永久秀<ESC>CZ居室―"
+},
+{
+"i": 48,
+"t": "<ESC>CC備前<ESC>CZの<ESC>CB浦上家<ESC>CZ、<ESC>CC土佐<ESC>CZの<ESC>CB一条家<ESC>CZ、そして\\n<ESC>CB毛利<ESC>CZに従っていた<ESC>CB村上水軍<ESC>CZにまで\\n誘いをかける。"
+},
+{
+"i": 49,
+"t": "<ESC>CC備前<ESC>CZの梟雄と呼ばれ、裏切りも騙し討ちも\\nいとわず、策謀の限りを尽くしてきた男が\\n最期の時を迎えようとしていた…"
+},
+{
+"i": 50,
+"t": "<ESC>CC備前<ESC>CZの梟雄・<ESC>CA宇喜多直家<ESC>CZの寝返りは\\n<ESC>CC中国地方<ESC>CZの勢力図を大きく描き変える\\nきっかけとなった…"
+},
+{
+"i": 51,
+"t": "<ESC>CC備後<ESC>CZの地でのうのうと生き延びたわしは、\\n所詮、天下に選ばれた男では\\nなかったということか…"
+},
+{
+"i": 52,
+"t": "<ESC>CC勝軍山<ESC>CZとはまさに<ESC>CB足利家<ESC>CZに相応しき名。\\nこれよりは<ESC>CC将軍山<ESC>CZとでも改めるか。\\nこの山に籠もって<ESC>CB三好軍<ESC>CZと戦わん！"
+},
+{
+"i": 53,
+"t": "<ESC>CC北九州<ESC>CZの一大貿易港・<ESC>CC博多<ESC>CZ―\\nこの地を巡って、九州探題・<ESC>CA[b473]<ESC>CZと\\n中国の雄・<ESC>CA毛利元就<ESC>CZは激しく争ってきた。"
+},
+{
+"i": 54,
+"t": "<ESC>CC北国街道<ESC>CZ沿いにある平城であり、\\n難攻不落の堅城とは決して呼べなかった。"
+},
+{
+"i": 55,
+"t": "<ESC>CC北陸<ESC>CZの<ESC>CC小京都<ESC>CZと謳われ、<ESC>CB朝倉氏<ESC>CZ百年の栄華を\\n閉じ込めた<ESC>CC一乗谷<ESC>CZの城も街も、\\nことごとく無慈悲な炎に包まれたのである。"
+},
+{
+"i": 56,
+"t": "<ESC>CC南都<ESC>CZ…<ESC>CC興福寺<ESC>CZに向かうぞ！\\n公方様の弟、<ESC>CA一乗院覚慶<ESC>CZ様がおられる。\\n将軍家の血筋を絶やしてはならぬ！"
+},
+{
+"i": 57,
+"t": "<ESC>CC南都<ESC>CZを含む<ESC>CC大和<ESC>CZは<ESC>CA松永久秀<ESC>CZの勢力圏…\\n放っておいては<ESC>CA覚慶<ESC>CZ様が<ESC>CA久秀<ESC>CZに討たれる。\\n我らはそれを阻止するのだ！"
+},
+{
+"i": 58,
+"t": "<ESC>CC南都<ESC>CZ？\\nならば…"
+},
+{
+"i": 59,
+"t": "<ESC>CC厳島<ESC>CZに<ESC>CA晴賢<ESC>CZめを誘い込む計略は成った。\\n<ESC>CA隆景<ESC>CZ、<ESC>CA村上<ESC>CZはどうだ？"
+}
+]
+}

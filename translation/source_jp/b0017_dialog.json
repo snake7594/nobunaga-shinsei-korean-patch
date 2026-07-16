@@ -1,0 +1,233 @@
+{
+"cat": "dialog",
+"items": [
+{
+"i": 0,
+"t": "<ESC>CA鹿之介<ESC>CZは<ESC>CB尼子家<ESC>CZの血を引く<ESC>CA勝久<ESC>CZを擁立し\\n幾度も<ESC>CC出雲<ESC>CZ奪還を試みるが、<ESC>CA吉川元春<ESC>CZらに\\n阻止され、しばらく身を隠していた。"
+},
+{
+"i": 1,
+"t": "<ESC>CA鹿之介<ESC>CZはある時\\n「誉れとなる手柄を立てたい」と\\n三日月に願掛けをして成就して以来…"
+},
+{
+"i": 2,
+"t": "<ESC>CA鹿之介<ESC>CZよ、<ESC>CA勝久<ESC>CZよ…頼む！\\nなんとか耐え切って<ESC>CB毛利<ESC>CZを打ち払うてくれ！\\nわしらは援軍を送る余裕がないんじゃ…"
+},
+{
+"i": 3,
+"t": "<ESC>CA鹿之介<ESC>CZ・<ESC>CA勝久<ESC>CZを中心とする<ESC>CB尼子<ESC>CZ再興軍は\\n<ESC>CC隠岐島<ESC>CZで挙兵。<ESC>CC出雲<ESC>CZに上陸すると瞬く間に\\n勢力を広げ、城を次々と落としていく。"
+},
+{
+"i": 4,
+"t": "<ESC>CA鹿之介<ESC>CZ殿であれば、\\n我らが恩義を忘れることはないでしょう。\\n悲願の<ESC>CB尼子<ESC>CZ再興が成るのですから…"
+},
+{
+"i": 5,
+"t": "<ESC>CA黒田職隆<ESC>CZの嫡子、<ESC>CA小寺官兵衛孝高<ESC>CZ―\\n元服に際し、<ESC>CA小寺政職<ESC>CZの姓を賜ったが\\n主君を憚って元の<ESC>CB黒田<ESC>CZ姓も併用したこの男…"
+},
+{
+"i": 6,
+"t": "<ESC>CA龍興<ESC>CZ様は今日も酒宴か！\\n我らの諫言など少しも聞いてくださらぬ！\\nまったく腹立たしいことよ！"
+},
+{
+"i": 7,
+"t": "<ESC>CA龍造寺隆信<ESC>CZと\\n重臣・<ESC>CA鍋島直茂<ESC>CZは義兄弟である。"
+},
+{
+"i": 8,
+"t": "<ESC>CA龍造寺隆信<ESC>CZは<ESC>CA晴信<ESC>CZの企みに激怒し、\\n<ESC>CB有馬<ESC>CZ攻めの姿勢を見せる。<ESC>CB島津家<ESC>CZとしては\\n<ESC>CB有馬家<ESC>CZへ援軍を送らざるを得ない。"
+},
+{
+"i": 9,
+"t": "<ESC>CA龍造寺隆信<ESC>CZは、<ESC>CC肥前<ESC>CZ守護<ESC>CB少弐家<ESC>CZの\\n家臣だった曾祖父の<ESC>CA家兼<ESC>CZから家督を継ぐや、\\n次々に領土を押し広げ…"
+},
+{
+"i": 10,
+"t": "<ESC>CA龍造寺隆信<ESC>CZ居城―"
+},
+{
+"i": 11,
+"t": "<ESC>CB[bm1448]軍<ESC>CZは<ESC>CC千曲川<ESC>CZに沿って<ESC>CC信濃<ESC>CZの諸城を制圧。\\nこれを迎え撃つべく、\\n<ESC>CA[b1251]<ESC>CZも出撃した。"
+},
+{
+"i": 12,
+"t": "<ESC>CB[bs1448]家<ESC>CZとの戦いでも\\n一向一揆の世話になったゆえ、\\n<ESC>CA顕如<ESC>CZ上人の要請も無下にはできまい…"
+},
+{
+"i": 13,
+"t": "<ESC>CB[bs1448]家<ESC>CZも\\n<ESC>CB武田家<ESC>CZとの争いを停戦させられるなど、\\n無視できないものがあった。"
+},
+{
+"i": 14,
+"t": "<ESC>CB[bs1448]家<ESC>CZ・<ESC>CA[b1448]<ESC>CZ居城"
+},
+{
+"i": 15,
+"t": "<ESC>CB[bs1871]<ESC>CZの本国を奇襲すべく中入りを行っていた\\n<ESC>CA[bs754]秀次<ESC>CZの軍は、<ESC>CC長久手<ESC>CZ附近で\\n逆に<ESC>CB徳川<ESC>CZ軍の急襲を受け、混乱に陥った。"
+},
+{
+"i": 16,
+"t": "<ESC>CB[bs1871]<ESC>CZ家臣・<ESC>CA井伊直政<ESC>CZは\\n知勇に優れた良将ではあったが、\\nその激しい性格が災いしてか、"
+},
+{
+"i": 17,
+"t": "<ESC>CB[bs1871]<ESC>CZ軍に気付かれた模様！\\nここは迎え撃つしかありませぬ！"
+},
+{
+"i": 18,
+"t": "<ESC>CB[bs1871]家<ESC>CZもこれでは<ESC>CB真田<ESC>CZに手を出せなくなり\\n歯噛みをするばかりとなってしまう。"
+},
+{
+"i": 19,
+"t": "<ESC>CB[bs754]<ESC>CZ軍の一部が動きました。\\nおそらく行き先は<ESC>CC三河<ESC>CZ方面かと！"
+},
+{
+"i": 20,
+"t": "<ESC>CB[bus]家<ESC>CZが全国各地の城を隈なく制し、\\nそれに対抗し得る存在が消滅した。\\n遂に、天下統一が成ったのである。"
+},
+{
+"i": 21,
+"t": "<ESC>CB[bus]家<ESC>CZはかつての応仁の乱後の\\n<ESC>CB足利将軍家<ESC>CZと同様、実質的な権力を失い、\\n名目的な棟梁としてのみ存続したのである…"
+},
+{
+"i": 22,
+"t": "<ESC>CB一条家<ESC>CZを滅ぼし、\\n<ESC>CC土佐<ESC>CZ一国を平定した<ESC>CA長宗我部元親<ESC>CZは\\n次の攻略目標を阿波と考えていた。"
+},
+{
+"i": 23,
+"t": "<ESC>CB三好<ESC>CZの栄華はもはや終わりぞ。\\n故事にいうとおり、勢い盛ろうとも\\nいつかは衰え滅ぶ…"
+},
+{
+"i": 24,
+"t": "<ESC>CB三好<ESC>CZ・<ESC>CB松永<ESC>CZ、いずれも<ESC>CB足利<ESC>CZの権威より\\n力にすがる俗物。だが、そんな彼らを\\n頼みとせねば、<ESC>CC京<ESC>CZに留まることすらできぬ。"
+},
+{
+"i": 25,
+"t": "<ESC>CB三好<ESC>CZ三人衆や<ESC>CA松永久通<ESC>CZらが将軍<ESC>CA足利義輝<ESC>CZの\\n命を狙っているという噂は、<ESC>CB三好家<ESC>CZ中では\\n公然のものとなっていた…"
+},
+{
+"i": 26,
+"t": "<ESC>CB三好家<ESC>CZの表の顔は<ESC>CA長慶<ESC>CZ様…それは間違いない\\nだがそれを裏で支えていたのが<ESC>CA実休<ESC>CZ殿だ…"
+},
+{
+"i": 27,
+"t": "<ESC>CB三好家<ESC>CZの要であった<ESC>CA長慶<ESC>CZの死後、\\n<ESC>CA義継<ESC>CZではその分裂を抑え切れず、\\n家中の争いはますます激化していた…"
+},
+{
+"i": 28,
+"t": "<ESC>CB三好家<ESC>CZは<ESC>CB小笠原家<ESC>CZの分流で、<ESC>CC阿波三好郡<ESC>CZを\\n名字の地とする。<ESC>CA三好長慶<ESC>CZが上洛した後も\\nその地盤は<ESC>CC阿波<ESC>CZを中心とした<ESC>CC四国<ESC>CZにあった。"
+},
+{
+"i": 29,
+"t": "<ESC>CB三好家<ESC>CZは<ESC>CB小笠原氏<ESC>CZの支流を称し、\\n<ESC>CC阿波三好郡<ESC>CZに地盤を築いて、\\n守護・<ESC>CB阿波細川氏<ESC>CZに仕えた一族である。"
+},
+{
+"i": 30,
+"t": "<ESC>CB三好家<ESC>CZは\\n当主<ESC>CA長慶<ESC>CZを失った衝撃こそ大きかったものの\\n未だ<ESC>CC畿内<ESC>CZの覇者たる権勢を堅持していた。"
+},
+{
+"i": 31,
+"t": "<ESC>CB三好家<ESC>CZは本来、<ESC>CB細川家<ESC>CZの家臣。\\nつまり<ESC>CA[bm75]<ESC>CZから見れば陪臣に過ぎない。\\n自尊心が邪魔してか、交渉は進まなかった。"
+},
+{
+"i": 32,
+"t": "<ESC>CB三好家<ESC>CZ・<ESC>CA三好長慶<ESC>CZ居城――"
+},
+{
+"i": 33,
+"t": "<ESC>CB三好軍<ESC>CZの攻撃により<ESC>CC霊山城<ESC>CZは陥落。\\n将軍<ESC>CA[bm75]<ESC>CZは再び<ESC>CC近江<ESC>CZへと逃れ、<ESC>CA晴元<ESC>CZらも\\nそれに従った。"
+},
+{
+"i": 34,
+"t": "<ESC>CB三木家<ESC>CZ当主・<ESC>CA三木良頼<ESC>CZの願いであった\\n中納言叙任は、未だ果たされずにいた。"
+},
+{
+"i": 35,
+"t": "<ESC>CB三木家<ESC>CZ当主・<ESC>CA三木良頼<ESC>CZは朝廷より\\n従五位下・飛騨守に任じられていた。"
+},
+{
+"i": 36,
+"t": "<ESC>CB三河衆<ESC>CZは確かに強い…\\nそして、わしを支えんとする忠義もまた強い。"
+},
+{
+"i": 37,
+"t": "<ESC>CB上杉<ESC>CZの正嫡が危うい今、そなたは己の力で\\n<ESC>CC越後<ESC>CZを確実に治めておる。\\n関東管領を継いでも異論はあるまい。"
+},
+{
+"i": 38,
+"t": "<ESC>CB上杉<ESC>CZ・<ESC>CB真田<ESC>CZ・<ESC>CB北条<ESC>CZ・<ESC>CB[bs1871]<ESC>CZの利権が交錯した\\n複雑怪奇な動乱を現在では\\n「天正壬午の乱」と呼ぶことも多い。"
+},
+{
+"i": 39,
+"t": "<ESC>CB上杉<ESC>CZ勢の援軍などもあり、\\n遂に<ESC>CB[bs1871]<ESC>CZ軍は撤退を余儀なくされる。"
+},
+{
+"i": 40,
+"t": "<ESC>CB上杉<ESC>CZ家中の混乱もどうやら収まりました。\\n雨降って地固まる、となってくれれば\\n幸いにございまするが。"
+},
+{
+"i": 41,
+"t": "<ESC>CB上杉家<ESC>CZは新当主<ESC>CA景勝<ESC>CZの下、一致団結して\\n諸大名と対峙してゆくのであった…"
+},
+{
+"i": 42,
+"t": "<ESC>CB二階堂家<ESC>CZや<ESC>CB伊達家<ESC>CZの影響力が強まることを\\n恐れた<ESC>CB蘆名<ESC>CZ家臣らは猛反対したが、\\n<ESC>CA盛氏<ESC>CZは<ESC>CA盛隆<ESC>CZへの<ESC>CB蘆名<ESC>CZ名跡相続を強行した。"
+},
+{
+"i": 43,
+"t": "<ESC>CB今川<ESC>CZの支配を甘んじて受けざるを得なかった\\n<ESC>CB松平<ESC>CZ家臣たちは、<ESC>CA義元<ESC>CZの空約束に\\n一縷の望みを抱く。"
+},
+{
+"i": 44,
+"t": "<ESC>CB今川<ESC>CZ・<ESC>CB北条領<ESC>CZの塩に頼り切っていた我らが\\nこの後、<ESC>CC越後<ESC>CZの塩に頼るように\\n仕向けておるようにも見えるな…"
+},
+{
+"i": 45,
+"t": "<ESC>CB今川<ESC>CZ・<ESC>CB武田<ESC>CZの連合軍は、<ESC>CC長久保城<ESC>CZや<ESC>CC狐橋<ESC>CZで\\n<ESC>CA北条氏康<ESC>CZの軍勢を撃退した。"
+},
+{
+"i": 46,
+"t": "<ESC>CB今川家<ESC>CZとしては、元々支配していた<ESC>CC河東<ESC>CZを\\n家臣筋であった<ESC>CB北条家<ESC>CZに奪われたまま、\\nいつまでも放っておけるはずもなかった。"
+},
+{
+"i": 47,
+"t": "<ESC>CB今川家<ESC>CZの武将として元服した<ESC>CA松平元信<ESC>CZは\\nそれから程なく<ESC>CA義元<ESC>CZに申し出、祖父の\\n<ESC>CA清康<ESC>CZの名にちなんで、<ESC>CA元康<ESC>CZと改名した。"
+},
+{
+"i": 48,
+"t": "<ESC>CB今川家<ESC>CZの滅亡は勢力間の均衡を大きく崩し、\\n仇敵であった<ESC>CB[bs1448]<ESC>CZ・<ESC>CB北条<ESC>CZの関係が\\n急速に近付きつつあった…"
+},
+{
+"i": 49,
+"t": "<ESC>CB今川家<ESC>CZの軍師だった<ESC>CA北条早雲<ESC>CZ（<ESC>CA伊勢宗瑞<ESC>CZ）は\\n<ESC>CC伊豆<ESC>CZ・<ESC>CC相模<ESC>CZを領して独立し、\\n嫡男・<ESC>CA氏綱<ESC>CZは<ESC>CC武蔵<ESC>CZ・<ESC>CC下総<ESC>CZ・<ESC>CC駿河<ESC>CZへ進出した。"
+},
+{
+"i": 50,
+"t": "<ESC>CB今川家<ESC>CZは<ESC>CB足利一門<ESC>CZでありながら、開幕当初に\\n分家の<ESC>CA今川了俊<ESC>CZが鎮西探題に任命された他\\n幕府の要職に就いたことがなかった。"
+},
+{
+"i": 51,
+"t": "<ESC>CB今川家<ESC>CZは<ESC>CC遠江<ESC>CZ・<ESC>CC駿河<ESC>CZにまだ万全として屹立し\\n一方で<ESC>CA義元<ESC>CZを破り、勢いに乗る<ESC>CC尾張<ESC>CZの<ESC>CB織田家<ESC>CZ\\nの双方と同時に相手をする力はなかった。"
+},
+{
+"i": 52,
+"t": "<ESC>CB今川家<ESC>CZは、<ESC>CA義元<ESC>CZと<ESC>CA雪斎<ESC>CZという\\n両輪によって支えられていた。"
+},
+{
+"i": 53,
+"t": "<ESC>CB伊東<ESC>CZの奴らが逃げ込んだからな。"
+},
+{
+"i": 54,
+"t": "<ESC>CB伊達<ESC>CZと<ESC>CB最上<ESC>CZ…\\nいずれもわらわにとっては守るべき家。"
+},
+{
+"i": 55,
+"t": "<ESC>CB伊達家<ESC>CZが代々続けてきた\\n「洞」と呼ばれる婚姻同盟連合は\\n<ESC>CC奥州<ESC>CZに平和と安定と、退屈をもたらしてきた。"
+},
+{
+"i": 56,
+"t": "<ESC>CB伊達家<ESC>CZには過去に、\\n<ESC>CA伊達晴宗<ESC>CZとその父・<ESC>CA稙宗<ESC>CZの権力争いが\\n<ESC>CC奥州<ESC>CZ全土を巻き込む大乱へと発展し、"
+}
+]
+}

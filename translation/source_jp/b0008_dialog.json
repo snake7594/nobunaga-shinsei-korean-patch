@@ -1,0 +1,245 @@
+{
+"cat": "dialog",
+"items": [
+{
+"i": 0,
+"t": "<ESC>CA半兵衛<ESC>CZ殿、\\n今のお言葉で<ESC>CA[bm826]<ESC>CZ、目が覚めました！"
+},
+{
+"i": 1,
+"t": "<ESC>CA半兵衛<ESC>CZ殿、\\n今日こそ色よい返事をいただけぬか。"
+},
+{
+"i": 2,
+"t": "<ESC>CA半兵衛<ESC>CZ殿、私に恨みでもござるのか！\\nいかなる存念じゃ！\\n返答次第によっては…"
+},
+{
+"i": 3,
+"t": "<ESC>CA半兵衛<ESC>CZ殿の策が見事に当たりました。\\n改めて<ESC>CA信長<ESC>CZ様より<ESC>CC中国<ESC>CZ攻略の命が\\n<ESC>CA秀吉<ESC>CZ様に下されましたぞ。"
+},
+{
+"i": 4,
+"t": "<ESC>CA半兵衛<ESC>CZ殿！\\n今後も至らぬところはどうぞ、\\nご教授くだされ！"
+},
+{
+"i": 5,
+"t": "<ESC>CA半兵衛<ESC>CZ！？　こんなところで何をしとる？\\n<ESC>CC京<ESC>CZへ戻り、医者に見てもらえと\\n言うておいたじゃろうが！"
+},
+{
+"i": 6,
+"t": "<ESC>CA半蔵<ESC>CZ…\\nお前さんが、俺を介錯してくれんのか？"
+},
+{
+"i": 7,
+"t": "<ESC>CA吉岡<ESC>CZ殿の策が効いたようですな\\n<ESC>CA元就<ESC>CZはもはや、\\n<ESC>CC中国<ESC>CZより離れること能わぬかと…"
+},
+{
+"i": 8,
+"t": "<ESC>CA吉川<ESC>CZ…？\\nあの、粗忽者と噂の<ESC>CA興経<ESC>CZのですか？"
+},
+{
+"i": 9,
+"t": "<ESC>CA吉川元春<ESC>CZ・<ESC>CA小早川隆景<ESC>CZらは<ESC>CA山中鹿之介<ESC>CZらの\\n<ESC>CB尼子<ESC>CZ復興軍を退ける一方、<ESC>CC山口<ESC>CZに上陸した\\n<ESC>CA大内輝弘<ESC>CZを襲撃した。"
+},
+{
+"i": 10,
+"t": "<ESC>CA吉川興経<ESC>CZは粗忽者とはいえ戦上手。\\nその家臣たちもまた…というわけか？"
+},
+{
+"i": 11,
+"t": "<ESC>CA吉弘鎮理<ESC>CZは<ESC>CB大友家<ESC>CZ重臣・<ESC>CA吉弘鑑理<ESC>CZの次男で\\n主君<ESC>CA[b473]<ESC>CZから嘱望された勇将である。"
+},
+{
+"i": 12,
+"t": "<ESC>CA善助<ESC>CZらは<ESC>CA[bm826]<ESC>CZが<ESC>CA村重<ESC>CZに捕らわれた後も\\n密かに<ESC>CC有岡城<ESC>CZ内を探り、\\nその無事を確認していたのである。"
+},
+{
+"i": 13,
+"t": "<ESC>CA四郎<ESC>CZよ\\n早いものでおぬしも元服…"
+},
+{
+"i": 14,
+"t": "<ESC>CA国久<ESC>CZが討たれたと聞き、子の<ESC>CA誠久<ESC>CZは\\n宗家との戦を覚悟し、<ESC>CB新宮党<ESC>CZの館に籠もるが\\n旗色は悪く、まもなく自害した。"
+},
+{
+"i": 15,
+"t": "<ESC>CA国親<ESC>CZの<ESC>CC土佐<ESC>CZ統一の夢は、\\n彼が考案した「一領具足」と共に\\n嫡男・<ESC>CA元親<ESC>CZへと託されたのである。"
+},
+{
+"i": 16,
+"t": "<ESC>CA国親<ESC>CZは苦難の末に\\n<ESC>CB長宗我部家<ESC>CZを建て直し、勢力を拡大。\\nそして遂に仇敵・<ESC>CB本山家<ESC>CZを追い詰めた。"
+},
+{
+"i": 17,
+"t": "<ESC>CA大内<ESC>CZから<ESC>CA毛利<ESC>CZへ…\\n<ESC>CC中国<ESC>CZの覇者、交代の瞬間であった。"
+},
+{
+"i": 18,
+"t": "<ESC>CA大内政弘<ESC>CZは、応仁の乱で西軍の重鎮となり、\\nその子・<ESC>CA大内義興<ESC>CZは<ESC>CA細川高国<ESC>CZと結んで上京。\\n管領代として幕政を取り仕切った。"
+},
+{
+"i": 19,
+"t": "<ESC>CA大友義鎮<ESC>CZはしばらくの間、\\n評定の場に姿を見せていなかった。"
+},
+{
+"i": 20,
+"t": "<ESC>CA大友親家<ESC>CZは、兄<ESC>CA義統<ESC>CZと折り合いが悪く、\\n父<ESC>CA[bm473]<ESC>CZから出家を命じられていたが、\\n<ESC>CB田原家<ESC>CZを継ぐこととなった。"
+},
+{
+"i": 21,
+"t": "<ESC>CA天徳寺宝衍<ESC>CZ―\\n<ESC>CC下野<ESC>CZの大名・<ESC>CA佐野泰綱<ESC>CZの子でありながら、\\n兄・<ESC>CA昌綱<ESC>CZに仕えず諸国を放浪した将である。"
+},
+{
+"i": 22,
+"t": "<ESC>CA太原雪斎<ESC>CZ―\\n元は<ESC>CA九英承菊<ESC>CZといい、<ESC>CC京<ESC>CZで禅僧をしていたが\\n幼い<ESC>CA義元<ESC>CZの教育係として<ESC>CC駿河<ESC>CZに招かれた。"
+},
+{
+"i": 23,
+"t": "<ESC>CA太郎義信<ESC>CZ、我が子であろう…\\nあやつは<ESC>CB今川<ESC>CZから嫁をもろうておる\\n<ESC>CB今川<ESC>CZとは是が非でも縁は切れまい。"
+},
+{
+"i": 24,
+"t": "<ESC>CA如春尼<ESC>CZの姉は<ESC>CA[b1251]<ESC>CZの妻・<ESC>CA三条の方<ESC>CZであり\\n<ESC>CA[bm1251]<ESC>CZと<ESC>CA顕如<ESC>CZは義理の兄弟、当時の言葉では\\n「相婿」ということになる。"
+},
+{
+"i": 25,
+"t": "<ESC>CA宇喜多忠家<ESC>CZの子・<ESC>CA詮家<ESC>CZは、\\n従兄弟に当たる主君・<ESC>CA秀家<ESC>CZとの相性が悪く、\\n<ESC>CB宇喜多<ESC>CZの家を出奔していた。"
+},
+{
+"i": 26,
+"t": "<ESC>CA宇喜多直家<ESC>CZは、<ESC>CB浦上家<ESC>CZから独立する以前より\\n<ESC>CB毛利家<ESC>CZを連携相手に選び、\\n<ESC>CC山陽<ESC>CZの大勢力間を遊泳してきた。"
+},
+{
+"i": 27,
+"t": "<ESC>CA守就<ESC>CZは我が目を疑った。娘婿<ESC>CA半兵衛<ESC>CZは\\n宣言どおり、部下に的確に指示を出すと\\n密かに<ESC>CC稲葉山<ESC>CZ城内に潜入し…"
+},
+{
+"i": 28,
+"t": "<ESC>CA安国寺恵瓊<ESC>CZ―<ESC>CB毛利家<ESC>CZの外交を担当する僧侶。\\n彼もまた、<ESC>CA義昭<ESC>CZの<ESC>CC京<ESC>CZ帰還を説得に来ていた。"
+},
+{
+"i": 29,
+"t": "<ESC>CA安藤守就<ESC>CZ。一時期は<ESC>CA伊賀<ESC>CZ姓を名乗った。\\n<ESC>CA道三<ESC>CZ・<ESC>CA義龍<ESC>CZ・<ESC>CA龍興<ESC>CZの三代に仕えた古参の\\n重臣であり、<ESC>CA氏家<ESC>CZ・<ESC>CA稲葉<ESC>CZと仲が良かった。"
+},
+{
+"i": 30,
+"t": "<ESC>CA宗勝<ESC>CZ、<ESC>CA村上<ESC>CZに伝えよ。\\n船を貸すは一夜限りでよい、と…"
+},
+{
+"i": 31,
+"t": "<ESC>CA宗勝<ESC>CZが戻り次第、水軍を率いて島へ。\\n港より陸に上がり、<ESC>CA陶<ESC>CZの陣をかき乱す。\\n…ですな？"
+},
+{
+"i": 32,
+"t": "<ESC>CA宗景<ESC>CZの必死の訴えを聞き入れる家臣は\\nほとんどなく、平穏裡と言ってよいほど\\nすみやかに権力移譲が行われた。"
+},
+{
+"i": 33,
+"t": "<ESC>CA宗治<ESC>CZの武士の意地は、美しさだけを残して\\n大きな時代のうねりに\\nのみ込まれていくのであった…"
+},
+{
+"i": 34,
+"t": "<ESC>CA宗滴<ESC>CZは一度、<ESC>CB朝倉家<ESC>CZ当主の座を狙って\\n謀反を企ててるも、決行直前で思い止まり、\\n共謀者を密告した過去があった…"
+},
+{
+"i": 35,
+"t": "<ESC>CA宗滴<ESC>CZ様。\\nお加減はいかがでございますか？"
+},
+{
+"i": 36,
+"t": "<ESC>CA定実<ESC>CZの死をもって<ESC>CB越後上杉家<ESC>CZは断絶した。\\n<ESC>CC越後<ESC>CZは守護不在のまま、守護代<ESC>CA長尾景虎<ESC>CZが\\n支配を続けていくこととなる…"
+},
+{
+"i": 37,
+"t": "<ESC>CA定実<ESC>CZ様も…？　いつの間に！\\nお前たち…謀ったな！！"
+},
+{
+"i": 38,
+"t": "<ESC>CA宝衍<ESC>CZは還俗し、<ESC>CB佐野家<ESC>CZ歴代の通字である\\n「綱」を取って「<ESC>CA房綱<ESC>CZ」と名乗り\\nしばしの間、<ESC>CB佐野家<ESC>CZの家督を継承した。"
+},
+{
+"i": 39,
+"t": "<ESC>CA家久<ESC>CZ\\n奴らを迎え討つならば、どこになる？"
+},
+{
+"i": 40,
+"t": "<ESC>CA家久<ESC>CZの<ESC>CC高城<ESC>CZに食いついた<ESC>CB大友<ESC>CZを\\n我らが後詰を以て根切りにする。\\n<ESC>CA義弘<ESC>CZ、<ESC>CA歳久<ESC>CZ、支度を整えよ。"
+},
+{
+"i": 41,
+"t": "<ESC>CA家久<ESC>CZは、<ESC>CA豊久<ESC>CZの兜の緒をきつく結び直すと\\n脇差しで結び目の余りを切り捨てた。"
+},
+{
+"i": 42,
+"t": "<ESC>CA家久<ESC>CZ率いる<ESC>CB島津<ESC>CZ軍の攻撃に、\\n先峰の<ESC>CA仙石<ESC>CZ隊は為すすべもなく壊滅。\\nそれに続く<ESC>CA長宗我部<ESC>CZ隊も総崩れとなった。"
+},
+{
+"i": 43,
+"t": "<ESC>CA家康<ESC>CZにとって、大名となって最初の危機とも\\n言えるこの一件は、<ESC>CC三河<ESC>CZ統一がため…"
+},
+{
+"i": 44,
+"t": "<ESC>CA家康<ESC>CZの父、<ESC>CA松平広忠<ESC>CZの代にて守護使不入の\\n特権を与えられていた彼らは"
+},
+{
+"i": 45,
+"t": "<ESC>CA家康<ESC>CZの籠る<ESC>CC浜松城<ESC>CZには一瞥もくれず\\n軍を西に向け、<ESC>CC三河<ESC>CZ方面へ進む。"
+},
+{
+"i": 46,
+"t": "<ESC>CA家康<ESC>CZはこの戦で体験した\\n<ESC>CA信玄<ESC>CZへの恐怖と敬意…自らの短慮…\\nそして家臣らの忠節を…"
+},
+{
+"i": 47,
+"t": "<ESC>CA家康<ESC>CZは残った家臣団を率い、戦にて\\n<ESC>CB一向宗<ESC>CZを打ち破ると和議を成立させる。"
+},
+{
+"i": 48,
+"t": "<ESC>CA小十郎<ESC>CZ、まだ早いわ！\\n祝いは俺が天下の主になるまでとっておけ！"
+},
+{
+"i": 49,
+"t": "<ESC>CA小早川<ESC>CZが戦を止めれば<ESC>CB毛利<ESC>CZは片付きまする\\nまずは<ESC>CA黒田<ESC>CZが<ESC>CC播磨<ESC>CZを調略、<ESC>CB別所<ESC>CZを降し、\\n次は<ESC>CC鳥取<ESC>CZ、<ESC>CB宇喜多<ESC>CZを調略し<ESC>CC高松<ESC>CZ…"
+},
+{
+"i": 50,
+"t": "<ESC>CA小早川隆景<ESC>CZ居城―\\n<ESC>CA[bm826]<ESC>CZは嫡男・<ESC>CA長政<ESC>CZを連れ\\n<ESC>CA隆景<ESC>CZの下に教えを乞いに来ていた。"
+},
+{
+"i": 51,
+"t": "<ESC>CA小次郎<ESC>CZ、\\n俺が今宵、お前をここに呼んだ理由、\\n…分かっておるな？"
+},
+{
+"i": 52,
+"t": "<ESC>CA小次郎<ESC>CZを排除し、未然に内紛を防いだ<ESC>CA政宗<ESC>CZは\\n改めて<ESC>CB伊達家<ESC>CZ中の権力者が誰であるかを\\n証明してみせたのであった。"
+},
+{
+"i": 53,
+"t": "<ESC>CA尼子義久<ESC>CZらは<ESC>CB毛利家<ESC>CZの本国である<ESC>CC安芸<ESC>CZに\\n移送されたが、降伏に納得していない\\n<ESC>CA山中鹿之介<ESC>CZらは<ESC>CC出雲大社<ESC>CZで脱走した。"
+},
+{
+"i": 54,
+"t": "<ESC>CA山中鹿之介<ESC>CZ。\\nその名は、兄から贈られた\\n見事な鹿角の兜に由来すると言われている。"
+},
+{
+"i": 55,
+"t": "<ESC>CA山中鹿之介幸盛<ESC>CZ、見参！\\n<ESC>CA毛利元就<ESC>CZ、その首頂戴に参った！"
+},
+{
+"i": 56,
+"t": "<ESC>CA山県昌景<ESC>CZは\\n<ESC>CB[bs1871]軍<ESC>CZが空城の計を仕掛けたと見て\\n追撃を止め、兵を引き上げた。"
+},
+{
+"i": 57,
+"t": "<ESC>CA山県昌景<ESC>CZは非常に小柄であったが、\\n立つと雷鳴の如き威を備えており\\n戦場ではその姿が二倍三倍にも大きく見えた"
+},
+{
+"i": 58,
+"t": "<ESC>CA島津<ESC>CZの総帥として責任を取るべきわしが\\n出家したは致し方なき仕儀なれど、\\nそなたが出家することはなかったろうに…"
+},
+{
+"i": 59,
+"t": "<ESC>CA島津家久<ESC>CZの戦いの特徴に\\n厳しい「場定め」というものがある。"
+}
+]
+}
