@@ -4,8 +4,8 @@ import struct, sys, os, hashlib
 import lz4.block
 sys.stdout.reconfigure(encoding='utf-8')
 SP = os.path.dirname(os.path.abspath(__file__))
-SRC_MAIN = r'D:\nsw\merged_exefs\main'   # 1.1.4 merged main (was base — WRONG)
-OUT_MAIN = os.path.join(SP, 'main_patched')
+SRC_MAIN = os.environ.get('SRC_MAIN') or r'D:\nsw\merged_exefs\main'   # env override (e.g. 1.1.5 PUK)
+OUT_MAIN = os.environ.get('OUT_MAIN') or os.path.join(SP, 'main_patched')
 
 # JP original -> Korean (Korean UTF-16 byte length must be <= JP; null-padded)
 PATCHES = {

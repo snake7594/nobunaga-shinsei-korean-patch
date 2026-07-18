@@ -259,8 +259,8 @@ def main():
     used = [0]
     all_ko_text = []
 
-    # MSG source: use MERGED (1.1.4) MSG if present, else base 추출원본
-    MSG_SRC = r'D:\nsw\merged_sel\MSG\JP'
+    # MSG source: env override (e.g. 1.1.5 PUK) > merged 1.1.4 > base
+    MSG_SRC = os.environ.get('MSG_SRC') or r'D:\nsw\merged_sel\MSG\JP'
     if not os.path.isdir(MSG_SRC):
         MSG_SRC = os.path.join(SRC, r'romfs\MSG\JP')
     print(f'MSG source: {MSG_SRC}')

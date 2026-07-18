@@ -10,9 +10,9 @@ import sys, struct, os, re
 import numpy as np, lz4.block
 sys.stdout.reconfigure(encoding='utf-8')
 
-MOD=r'C:\Users\Jay\AppData\Roaming\Ryujinx\mods\contents\01007ab012872000\romfs\MSG\JP'
-OUTD=r'D:\nsw\rom\노부나가의 야망 신생_일본판\한글패치_테스트\romfs\MSG\JP'
-NEWFONT=r'D:\nsw\rom\노부나가의 야망 신생_일본판\한글패치_테스트\romfs\RES_JP\res_lang.bin'
+MOD=os.environ.get('MSG_IN') or r'C:\Users\Jay\AppData\Roaming\Ryujinx\mods\contents\01007ab012872000\romfs\MSG\JP'
+OUTD=os.environ.get('MSG_OUT') or r'D:\nsw\rom\노부나가의 야망 신생_일본판\한글패치_테스트\romfs\MSG\JP'
+NEWFONT=os.environ.get('MSG_FONT') or r'D:\nsw\rom\노부나가의 야망 신생_일본판\한글패치_테스트\romfs\RES_JP\res_lang.bin'
 
 def kt_dec(b):
     dec=struct.unpack_from('<Q',b,8)[0]; comp=struct.unpack_from('<Q',b,16)[0]
