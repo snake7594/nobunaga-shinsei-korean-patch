@@ -34,21 +34,28 @@ def msggame_cps(dec,out):
             for c in raw.decode('utf-16-le',errors='replace'): out.add(ord(c))
         i=en+3
 
-# PK_MSG_SRC: original (untranslated) MSG_PK/JP dumped from real hardware (872001 program).
-#             PC-based multi-program NSP extraction does not yield this — see docs/BUILD.md.
-# BASE_MSG_SRC: original (untranslated) base-game MSG/JP (872000), for the shared codepoint set.
-# MAIN_872001: 872001's exefs/main (patched or unpatched, only used to scan literal strings).
 used=set()
-PK = os.environ.get('PK_MSG_SRC') or r'D:\nsw\rom\1.1.5\Program 1\romfs\MSG_PK\JP'
-BM = os.environ.get('BASE_MSG_SRC') or r'D:\nsw\rom\1.1.5\Program 0\romfs\MSG\JP'
+PK=r'D:\nsw\rom\1.1.5\Program 1\romfs\MSG_PK\JP'
+BM=r'D:\nsw\rom\1.1.5\Program 0\romfs\MSG\JP'
 for f in ['msgdata.bin','msgev.bin','msgui.bin','msgbre.bin','msgire.bin','msgstf.bin']:
     strtable_cps(kt_dec(open(os.path.join(PK,f),'rb').read()),used)
 msggame_cps(kt_dec(open(os.path.join(PK,'msggame.bin'),'rb').read()),used)
 for f in ['strdata.bin','ev_strdata.bin']: strtable_cps(kt_dec(open(os.path.join(BM,f),'rb').read()),used)
 msggame_cps(kt_dec(open(os.path.join(BM,'msggame.bin'),'rb').read()),used)
+# DLC_PK .n16 string tables (original JP, pristine source) -- keep all their glyphs,
+# since some fields (kana reading/search keys) are intentionally left untranslated.
+DLCSRC=os.environ.get('DLC_PK_SRC') or r'D:\nsw\rom\1.1.5\Program 1\romfs\DLC_PK\JP'
+if os.path.isdir(DLCSRC):
+    import glob as _glob2
+    from n16_reader import n16_unwrap as _n16_unwrap2, read_section_strings as _n16_strs2
+    for f in _glob2.glob(os.path.join(DLCSRC,'*.n16')):
+        dd=open(f,'rb').read()
+        _,dec,_=_n16_unwrap2(dd)
+        if len(dec)>=4 and struct.unpack_from('<I',dec,0)[0]==0x134C58:
+            for s in _n16_strs2(dec,0,len(dec)):
+                for c in s: used.add(ord(c))
 # main null-terminated UTF-16 strings
-MAIN_872001 = os.environ.get('MAIN_872001') or r'D:\nsw\rom\1.1.5\Program 1\exefs\main'
-main=open(MAIN_872001,'rb').read()
+main=open(r'D:\nsw\rom\1.1.5\Program 1\exefs\main','rb').read()
 def is_text(v): return v==0x20 or 0x30<=v<=0x7e or 0x3000<=v<=0x9fff or 0xf900<=v<=0xfaff or 0xff00<=v<=0xffef or 0xac00<=v<=0xd7a3
 i=0;n=len(main)-1
 while i<n-1:
@@ -119,22 +126,28 @@ def inject(g1n, korean_cps):
     assert len(g)==len(g1n), 'size changed!'
     return bytes(g), total_added
 
-# ---------- Korean codepoints needed (from the translated MSG_PK output) ----------
-# PK_MSG_OUT: build output of build_msgpk.py (translated MSG_PK/JP) — run that step first.
-OUT = os.environ.get('PK_MSG_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\MSG_PK\JP'
+# ---------- Korean codepoints needed (from MSG_PK + DLC_PK translations) ----------
+OUT=r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\MSG_PK\JP'
+DLCOUT=os.environ.get('DLC_PK_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\DLC_PK\JP'
 kor=set()
 for f in ['msgdata.bin','msgev.bin','msgui.bin','msgbre.bin','msgire.bin']:
     strtable_cps(kt_dec(open(os.path.join(OUT,f),'rb').read()),kor)
 msggame_cps(kt_dec(open(os.path.join(OUT,'msggame.bin'),'rb').read()),kor)
+if os.path.isdir(DLCOUT):
+    import glob as _glob
+    from n16_reader import n16_unwrap as _n16_unwrap, read_section_strings as _n16_strs
+    for f in _glob.glob(os.path.join(DLCOUT,'*.n16')):
+        dd=open(f,'rb').read()
+        _,dec,_=_n16_unwrap(dd)
+        if len(dec)>=4 and struct.unpack_from('<I',dec,0)[0]==0x134C58:
+            for s in _n16_strs(dec,0,len(dec)):
+                for c in s: kor.add(ord(c))
 korean_cps=sorted(c for c in kor if 0xAC00<=c<=0xD7A3)
 print('Korean needed:', len(korean_cps))
 
-# ---------- build res_lang_pk (fonts injected in-place, size-preserving) ----------
-# PK_RES_SRC: original res_lang_pk.bin dumped from real hardware (872001 program, RES_JP_PK/).
-# PK_RES_OUT: output path for the mod (contents/01007ab012872001/romfs/RES_JP_PK/res_lang_pk.bin).
-PKRES = os.environ.get('PK_RES_SRC') or r'D:\nsw\rom\1.1.5\Program 1\romfs\RES_JP_PK\res_lang_pk.bin'
-OUTRES = os.environ.get('PK_RES_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\RES_JP_PK\res_lang_pk.bin'
-os.makedirs(os.path.dirname(OUTRES), exist_ok=True)
+# ---------- build res_lang_pk (fonts injected in-place, v3-style repack) ----------
+PKRES=r'D:\nsw\rom\1.1.5\Program 1\romfs\RES_JP_PK\res_lang_pk.bin'
+OUTRES=r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\RES_JP_PK\res_lang_pk.bin'
 pk=open(PKRES,'rb').read(); pt=toc(pk)
 out=bytearray(pk)
 for idx in (16,17):

@@ -123,6 +123,14 @@ Program 1/exefs/main
    `erase_place_transparent.py` 사용 — `koloc.erase_place`는 RGB만 인페인팅하고
    알파는 그대로 둬서 불투명 잔상이 남으므로 투명 배경 자산에는 부적합함.
 
+9-1. **DLC_PK 크로스오버 콘텐츠 번역** (env: `DLC_PK_SRC`, `DLC_PK_OUT`) —
+   `apply_dlc_translations.py`가 `dlc_translations.py`의 번역 데이터를
+   `evm_/gm_/scem_/tom_*.n16`에 적용, 토큰(`<ESC>C?`/`\n`) 검증 후 재조립.
+   신규 한글이 추가되므로 **6단계(폰트 삽입)부터 다시 실행해야 함** —
+   `g1n_inplace_korean.py`가 MSG_PK뿐 아니라 `DLC_PK_OUT`도 필요-한글 스캔
+   대상에 포함하므로, 이 파일들을 만든 뒤에(또는 만들면서) 6→7→8단계를
+   다시 돌려야 새 글자가 폰트에 반영됨.
+
 10. **exefs 패치** — `patch_main.py` (env: `SRC_MAIN`=872001의 main,
     `OUT_MAIN`, `NSO_UNCOMPRESSED=1`)
 
