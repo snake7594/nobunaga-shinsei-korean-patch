@@ -116,10 +116,17 @@ Program 1/exefs/main
    자동으로 재배치하게 함. 7단계에서 조인 폰트의 자간표를 사용하므로 반드시
    그 다음에 실행.
 
-9. **exefs 패치** — `patch_main.py` (env: `SRC_MAIN`=872001의 main,
-   `OUT_MAIN`, `NSO_UNCOMPRESSED=1`)
+9. **PUK 전용 이미지 한글화** — `loc_e18_labels.py`(정책/시설 라벨 43종),
+   `loc_e21_badges.py`(특성/가보 이름 배지 33종, env 둘 다: `PK_RES_SRC`)
+   → 각각 `e18_new_link.bin`/`e21_new_link.bin` 생성 → `assemble_res_lang_pk_puk.py`
+   (env: `PK_RES_OUT`)로 res_lang_pk에 병합. 투명 배경 텍스트 지우기는
+   `erase_place_transparent.py` 사용 — `koloc.erase_place`는 RGB만 인페인팅하고
+   알파는 그대로 둬서 불투명 잔상이 남으므로 투명 배경 자산에는 부적합함.
 
-10. **패키징** — 872000 빌드 결과 + 위 872001 빌드 결과를
+10. **exefs 패치** — `patch_main.py` (env: `SRC_MAIN`=872001의 main,
+    `OUT_MAIN`, `NSO_UNCOMPRESSED=1`)
+
+11. **패키징** — 872000 빌드 결과 + 위 872001 빌드 결과를
     `atmosphere/contents/01007ab012872000/`, `…872001/` 두 폴더로 각각 배치.
 
 ## 설치
