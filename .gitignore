@@ -25,6 +25,14 @@ tools/extractor/bin/
 tools/extractor/obj/
 out/
 *.zip
+tools/*_report.txt
+tools/tr_dict.json
+tools/tr_all.json
+tools/msgpk_new.json
+tools/msgpk_to_translate.json
+tools/msgpk_credits_passthrough.json
+tools/puk_batch_manifest.json
+tools/puk_glossary.txt
 
 # --- fonts (redistribute per their own license, not here) ---
 *.ttf

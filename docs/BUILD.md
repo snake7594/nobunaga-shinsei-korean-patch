@@ -61,13 +61,60 @@ MSG/{JP}/*.bin  ─ msg_parse ─▶ 원문 배치     res_lang 엔트리 6·7 (
 
 9. **패키징** — `make_zip.py` → `NobunagaShinsei_KR/` (romfs + exefs)
 
+위 단계는 **일반 게임 프로그램(872000)** 빌드입니다. **파워업키트(872001)**는
+텍스트·폰트가 별도 파일 세트라 아래 추가 단계가 필요합니다 — 배경은
+[docs/FORMATS.md §7](FORMATS.md#7-파워업키트872001-이중-프로그램-구조) 참고.
+
+## 파워업키트(872001) 빌드
+
+### ⚠️ 소스 파일은 실기에서 직접 덤프
+872001은 자체 base NCA가 없는 BKTR 패치라, PC의 hactool/LibHac 병합 추출로는
+`MSG_PK`/`RES_JP_PK`가 정확히 안 나옵니다. **DBI나 nxdumptool로 실기에서 직접
+덤프**하세요 — "Program 1"으로 표시되는 항목이 872001입니다. 필요한 것:
+```
+Program 1/romfs/MSG_PK/JP/*.bin          (7개 파일)
+Program 1/romfs/RES_JP_PK/res_lang_pk.bin
+Program 1/exefs/main
+```
+
+### 단계별
+
+1. **신규 문자열 탐지** — `find_puk_new_strings.py` (env: `PK_MSG_SRC`)
+   MSG_PK가 일반 게임 MSG와 공유하는 문자열은 기존 번역 사전으로 자동 커버됨.
+   실제 신규 번역이 필요한 것만 추려 `msgpk_to_translate.json`에 기록
+   (더미 placeholder·크레딧 블록은 자동 분리·제외).
+
+2. **배치화** — `prep_puk_batches.py` → `translation/source_jp_puk/pkNNN.json`
+
+3. **번역** — 각 배치를 `translation/korean_puk/pkNNN.json`(동일 `i` 인덱스)으로 번역.
+   서식 토큰(`\n \t <ESC>C? %d %s`) 보존 필수. `merge_puk_translations.py`로 검증.
+
+4. **MSG_PK 재조립** — `build_msgpk.py` (env: `PK_MSG_SRC`, `PK_MSG_OUT`)
+   일반 게임 사전(`translation/source_jp`+`korean`) + PUK 신규 사전
+   (`source_jp_puk`+`korean_puk`)을 원문-키로 병합해 번역 주입.
+
+5. **정규화** — `msgpk_normalize.py` (env: `PK_MSG_OUT`) 전각→반각 변환.
+
+6. **폰트 한글 삽입** — `g1n_inplace_korean.py`
+   (env: `PK_MSG_SRC`, `BASE_MSG_SRC`, `MAIN_872001`, `PK_MSG_OUT`, `PK_RES_SRC`, `PK_RES_OUT`)
+   **주의**: 반드시 이 스크립트를 써야 함. §5 방식(폰트 통째로 큰 걸로 교체)은
+   압축 해제 크기가 커져서 872001이 **부팅 전에 크래시**합니다. 이 스크립트는
+   미사용 전각 글자 자리에 한글을 제자리로 넣어 크기를 원본과 완전히 같게 유지합니다.
+
+7. **exefs 패치** — `patch_main.py` (env: `SRC_MAIN`=872001의 main,
+   `OUT_MAIN`, `NSO_UNCOMPRESSED=1`)
+
+8. **패키징** — 872000 빌드 결과 + 위 872001 빌드 결과를
+   `atmosphere/contents/01007ab012872000/`, `…872001/` 두 폴더로 각각 배치.
+
 ## 설치
 
-zip 속 `NobunagaShinsei_KR` 폴더를 모드 폴더에 복사(클린 설치 권장).
-- Ryujinx: 게임 우클릭 → Open Mods Directory
-- Atmosphère 실기: `atmosphere/contents/01007AB012872000/`
+zip 속 `atmosphere` 폴더를 SD카드 루트에 통째로 복사(클린 설치 권장) — 실기용.
+에뮬레이터는 `atmosphere/contents/<타이틀ID>/` 안의 내용을 각 게임의 모드 폴더로.
 
 ## 주의
 
-- `exefs/main`은 **게임 버전 1.1.4 전용**. 부팅 문제 시 exefs 폴더만 삭제.
-- 절대 커밋 금지: `prod.keys`, `title.keys`, 게임 원본/추출 바이너리.
+- `exefs/main`은 **게임 버전 1.1.5(파워업키트) 전용**. 부팅 문제 시 해당 프로그램의
+  exefs 폴더만 삭제.
+- 절대 커밋 금지: `prod.keys`, `title.keys`, 게임 원본/추출 바이너리
+  (`res_lang*.bin`, `MSG_PK/*.bin` 등 실기 덤프 파일 포함).
