@@ -26,23 +26,29 @@ def link_pairs(d):
 
 def rebuild_inner_link(blob, repl_children):
     """blob = raw LINK payload with children; repl_children = {idx: new_child_bytes}.
-    Preserve header (up to toc) exactly; 16-align children (loc_e18 pattern)."""
+    CRITICAL: preserve EVERYTHING up to the first child's original offset (header, TOC,
+    sprite/coordinate tables live between the TOC and the children — see koloc.rebuild_entry
+    which keeps e[:coff]). Children are re-laid 16-aligned in original file order and the
+    TOC pairs are patched in place inside the preserved prefix."""
     toc, pairs = link_pairs(blob)
-    children = []
-    for i, (off, sz) in enumerate(pairs):
-        children.append(repl_children.get(i, blob[off:off+sz]))
-    cursor = toc + len(children) * 8
-    toc_b = bytearray()
-    body = bytearray()
-    for ch in children:
+    nonzero = [(i, off, sz) for i, (off, sz) in enumerate(pairs) if sz > 0]
+    assert nonzero, 'no children'
+    first = min(off for _, off, _ in nonzero)
+    assert first >= toc + len(pairs) * 8, 'children overlap TOC'
+    out = bytearray(blob[:first])
+    cursor = first
+    new_pairs = {i: (off, sz) for i, (off, sz) in enumerate(pairs) if sz == 0}
+    for i, off, sz in sorted(nonzero, key=lambda t: t[1]):     # original file order
+        ch = repl_children.get(i, blob[off:off+sz])
         pad = (-cursor) % 16
-        body += b'\x00' * pad
+        out += b'\x00' * pad
         cursor += pad
-        toc_b += struct.pack('<II', cursor, len(ch))
-        body += ch
+        new_pairs[i] = (cursor, len(ch))
+        out += ch
         cursor += len(ch)
-    out = bytearray(blob[:toc]) + toc_b + body
-    struct.pack_into('<I', out, 4, len(children))
+    for i in range(len(pairs)):
+        off, sz = new_pairs[i]
+        struct.pack_into('<II', out, toc + i*8, off, sz)
     return bytes(out)
 
 def rebuild_outer(res, repl_entries):
@@ -191,6 +197,42 @@ def verify(path, checks):
             diff = np.abs(t['rgba'].astype(int) - probe_rgba.astype(int)).mean()
             print(f'  {os.path.basename(path)} e{e}/c{c}/t{tid}: diff={diff:.2f}')
     print(f'  {os.path.basename(path)}: OK ({len(outer)} entries)')
+
+def verify_entry_structure(orig_entry, new_entry, replaced):
+    """Prefix (header+TOC+sprite tables) must match byte-for-byte outside the TOC pair
+    slots; untouched children must be byte-identical."""
+    toc_o, pairs_o = link_pairs(orig_entry)
+    toc_n, pairs_n = link_pairs(new_entry)
+    assert toc_o == toc_n and len(pairs_o) == len(pairs_n)
+    first_o = min(off for off, sz in pairs_o if sz > 0)
+    first_n = min(off for off, sz in pairs_n if sz > 0)
+    assert first_o == first_n, (first_o, first_n)
+    po = bytearray(orig_entry[:first_o])
+    pn = bytearray(new_entry[:first_n])
+    for i in range(len(pairs_o)):                     # blank out TOC pair slots
+        for b in range(8):
+            po[toc_o + i*8 + b] = 0
+            pn[toc_o + i*8 + b] = 0
+    assert bytes(po) == bytes(pn), 'prefix (sprite tables) corrupted!'
+    for i, (of, sz) in enumerate(pairs_o):
+        if sz == 0 or i in replaced:
+            continue
+        nf, nsz = pairs_n[i]
+        assert orig_entry[of:of+sz] == new_entry[nf:nf+nsz], f'untouched child {i} changed'
+    return True
+
+print('== structural verify (prefix + untouched children) ==')
+for label, orig_res, new_path, checks in [
+    ('exp', EXP, p1, [(0, {1, 36, 38, 51, 52, 53, 64, 69, 72, 108}), (3, {0})]),
+    ('exppk', EXPPK, p2, [(0, {19, 44, 45, 46, 47}), (3, {0}), (4, {0})]),
+    ('res_lang_pk', SHIP_PK, p3, [(4, {0})]),
+]:
+    new_res = open(new_path, 'rb').read()
+    for e_idx, replaced in checks:
+        oe = get_entry(orig_res, e_idx)
+        ne = get_entry(new_res, e_idx)
+        verify_entry_structure(oe, ne, replaced)
+        print(f'  {label} e{e_idx}: structure OK')
 
 print('== verify ==')
 verify(p1, [(3, 0, 1, ko_nav), (0, 108, 0, load_npy('exp_e0_c108')), (0, 1, 0, None)])
