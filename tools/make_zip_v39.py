@@ -20,6 +20,12 @@ C0 = 'atmosphere/contents/01007ab012872000'
 C1 = 'atmosphere/contents/01007ab012872001'
 R1 = os.path.join(M117, 'atmosphere', 'contents', '01007ab012872001', 'romfs')
 
+# Ensure the Korean-input-method main (main_872001_hangul) is present/fresh before packaging.
+import subprocess
+_rc = subprocess.run([sys.executable, os.path.join(SP, 'apply_hangul_kbd.py')], cwd=SP)
+if _rc.returncode != 0:
+    sys.exit('apply_hangul_kbd.py failed — 한글 입력기 main 생성 실패, 빌드 중단')
+
 members = [
     # --- base game (872000) ---
     (f'{C0}/exefs/main',                    os.path.join(M117, 'main_872000')),
@@ -29,7 +35,9 @@ members = [
     (f'{C0}/romfs/RES_JP/res_lang.bin',     os.path.join(PB, r'romfs\RES_JP\res_lang.bin')),
     (f'{C0}/romfs/RES_JP/res_lang_exp.bin', os.path.join(V37, 'res_lang_exp_ko.bin')),
     # --- PUK (872001) ---
-    (f'{C1}/exefs/main',                        os.path.join(M117, 'main_872001')),
+    # exefs/main carries the Korean input method (한글 입력기 + 성명/독음 검증 바이패스),
+    # applied from issue #1's xdelta via apply_hangul_kbd.py -> main_872001_hangul.
+    (f'{C1}/exefs/main',                        os.path.join(M117, 'main_872001_hangul')),
     (f'{C1}/romfs/RES_JP_PK/res_lang_pk.bin',     os.path.join(V37, 'res_lang_pk_v37.bin')),
     (f'{C1}/romfs/RES_JP_PK/res_lang_exp_pk.bin', os.path.join(V37, 'res_lang_exp_pk_ko.bin')),
     (f'{C1}/romfs/RES_JP/res_lang.bin',           os.path.join(PB, r'romfs\RES_JP\res_lang.bin')),
