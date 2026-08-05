@@ -6,6 +6,9 @@
   string : 문자열 전체가 old 와 정확히 같은 항목을 new 로 바꾼다.
            (긴 문장처럼 고유한 것에만 쓸 것)
 
+  char   : 문자 하나를 모든 문자열에서 다른 문자로 바꾼다. 폰트에 글리프가 없는 문자를
+           같은 뜻의 '폰트에 있는' 문자로 돌리는 용도. (예: · U+00B7 -> ・ U+30FB)
+
   blob   : msggame 의 한 블록(런타임에 값과 번갈아 조립되는 조각 묶음)을 통째로 바꾼다.
            `old` 는 그 블록의 조각 배열과 정확히 일치해야 한다. '이', '들' 처럼 짧고
            흔한 조각을 안전하게 고치기 위한 방식이다.
@@ -74,6 +77,34 @@ def main():
         if hit == 0:
             print('     ⚠ 일치 없음 — 이미 고쳐졌거나 이 버전엔 없는 문자열')
 
+    # --- char 규칙 (문자 치환) ---
+    # 번역 안 한 항목(null = 원문 그대로 노출)도 대상으로 삼는다. 원문 자체가 폰트에
+    # 없는 문자를 쓰는 경우가 있어, 그대로 두면 원본 게임처럼 빈칸으로 보인다.
+    import ko_tables as _KT
+    jp_cache = {}
+    def jp_of(t):
+        if t['file'] not in jp_cache:
+            p = os.path.join(a.jp, t['file'])
+            jp_cache[t['file']] = _KT.read_file(p)[2] if os.path.exists(p) else []
+        return jp_cache[t['file']]
+
+    n_char = 0
+    for fx in [f for f in fixes if f.get('kind') == 'char']:
+        old, new = fx['old'], fx['new']
+        hit = strings = 0
+        for name, t in tables.items():
+            jps = jp_of(t)
+            for i, v in enumerate(t['ko']):
+                if v is None:                       # 원문 그대로인 항목
+                    v = jps[i] if i < len(jps) else None
+                    if not v or old not in v:
+                        continue
+                if old in v:
+                    hit += v.count(old); strings += 1
+                    t['ko'][i] = v.replace(old, new)
+        n_char += hit
+        print(f'  [char] {hit}회 / {strings}개 문자열   {old!r} U+{ord(old):04X} -> {new!r} U+{ord(new):04X}')
+
     # --- blob 규칙 ---
     blob_fixes = [f for f in fixes if f.get('kind') == 'blob']
     if blob_fixes:
@@ -104,7 +135,7 @@ def main():
             if hit == 0:
                 print('     ⚠ 일치 없음')
 
-    print(f'\n합계: string {n_str}건, blob {n_blob}건')
+    print(f'\n합계: string {n_str}건, char {n_char}회, blob {n_blob}건')
     if a.dry:
         print('(DRY-RUN — 저장하지 않음)')
         return
