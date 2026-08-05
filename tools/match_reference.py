@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """참고 번역(엑셀) ↔ 게임 원문 매칭.
 
-`reference/신생_이벤트_원문대조번역.xlsx` 는 게임 화면을 OCR 한 일본어 원문과 그에 대한
+참고 엑셀(제3자 자료라 저장소에 없음, `--xlsx` 로 지정)은 게임 화면을 OCR 한 일본어 원문과 그에 대한
 한국어 번역이 들어 있다. OCR이라 원문에 오탈자가 있어(てある↔である, リ↔り, 隹↔誰 …)
 글자 그대로는 게임 텍스트와 매칭되지 않는다. 그래서 **한자만 뽑아 3-gram 색인**으로
 후보를 좁히고 유사도로 확정한다(한자는 OCR 정확도가 높고 변별력도 크다).
@@ -19,7 +19,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ko_tables as K
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-XLSX = os.path.join(ROOT, 'reference', '신생_이벤트_원문대조번역.xlsx')
+# 참고 엑셀은 제3자 저작물이라 저장소에 넣지 않는다. --xlsx 로 로컬 경로를 준다.
+XLSX_DEFAULT = os.path.join(ROOT, 'reference', '신생_이벤트_원문대조번역.xlsx')
 
 ESC = re.compile(r'<ESC>C.')
 PLACE = re.compile(r'\[[a-z]+\d+\]')
@@ -33,9 +34,12 @@ def kanji_only(s):
     return ''.join(KANJI.findall(s))
 
 
-def load_reference():
+def load_reference(path):
     import openpyxl
-    wb = openpyxl.load_workbook(XLSX, read_only=True, data_only=True)
+    if not os.path.exists(path):
+        sys.exit(f'참고 엑셀이 없습니다: {path}\n'
+                 '  저장소에 포함하지 않는 제3자 자료입니다. --xlsx 로 경로를 지정하세요.')
+    wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
     ws = wb.worksheets[0]
     out = []
     for jp, ko, ev in ws.iter_rows(min_row=1, values_only=True):
@@ -71,12 +75,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--jp', required=True); ap.add_argument('--data', required=True)
     ap.add_argument('--jp2'); ap.add_argument('--data2')
+    ap.add_argument('--xlsx', default=XLSX_DEFAULT, help='참고 번역 엑셀 경로')
     ap.add_argument('--out', required=True)
     ap.add_argument('--min-kanji', type=int, default=6, help='이 개수 미만 한자면 건너뜀')
     ap.add_argument('--score', type=float, default=0.72)
     a = ap.parse_args()
 
-    ref = load_reference()
+    ref = load_reference(a.xlsx)
     print(f'참고 번역 {len(ref):,}행')
     game = load_game(a.jp, a.data)
     if a.jp2 and a.data2:
