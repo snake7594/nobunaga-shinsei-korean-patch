@@ -1,0 +1,17 @@
+{
+ "ev_strdata.bin": {
+  "kind": "strtable",
+  "count": 17868,
+  "translated": 13092
+ },
+ "msggame.bin": {
+  "kind": "msggame",
+  "count": 23595,
+  "translated": 22710
+ },
+ "strdata.bin": {
+  "kind": "strtable",
+  "count": 32201,
+  "translated": 25913
+ }
+}

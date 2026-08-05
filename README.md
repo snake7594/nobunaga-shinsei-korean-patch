@@ -270,31 +270,65 @@ atmosphere/contents/
 
 ---
 
-## 저장소 구성 (개발/기여용)
+## 직접 만들기 / 저장소 구성 (개발·기여용)
 
-이 저장소에는 **패치를 만드는 도구와 번역 데이터**가 함께 들어 있습니다.
-게임 원본 데이터·복호화 키는 포함하지 않습니다.
+**패치를 만드는 도구와 번역 데이터 전부가 이 저장소에 있습니다.** 게임 원본 파일만
+본인이 준비하면 배포 중인 zip과 **바이트 단위로 똑같은 패치**를 직접 만들 수 있습니다
+(1.1.7 기준 65개 파일 전부 일치 검증 완료).
+
+```bash
+# 1) 릴리스 zip에서 한글 폰트·이미지 가져오기
+python tools/fetch_release_images.py --release v4.0 \
+    --asset NobunagaShinsei_KR_for_1.1.7_PUK.zip --out images/
+
+# 2) 본인이 덤프한 게임 파일 + 저장소 데이터로 빌드
+python tools/build_patch.py --version 1.1.7 \
+  --romfs-base "<...>/Program 0/romfs" --romfs-puk "<...>/Program 1/romfs" \
+  --main-base "<...>/Program 0/exefs/main" --main-puk "<...>/Program 1/exefs/main" \
+  --images images/ --out build/1.1.7 --zip NobunagaShinsei_KR_for_1.1.7_PUK.zip
+```
+
+준비물·단계별 설명·새 게임 버전 대응·문제 해결은 **[docs/BUILD.md](docs/BUILD.md)** 에
+자세히 정리되어 있습니다.
 
 ```
-tools/            빌드 파이프라인 (Python) — 포맷 디코드/인코드, 폰트 확장,
-                  MSG 재조립, 이미지 로컬라이즈, 패키징
-  extractor/      병합 romfs 추출기 (LibHac, .NET 6) — 키는 본인 것 사용
-  scratch/        1회성 디버그/수정 스크립트 (참고용)
-translation/
-  source_jp/      일반 게임 원문 문자열 배치 (번역 키) 529개
-  korean/         index로 짝지어진 한국어 번역 529개
-  source_jp_puk/  파워업키트 신규 원문 배치 45개
-  korean_puk/     index로 짝지어진 한국어 번역 45개
+tools/            빌드 파이프라인 (Python)
+  build_patch.py      통합 빌더 (텍스트·DLC·exefs·이미지·패키징)
+  ko_tables.py        한국어 문자열 테이블 내보내기/적용 (핵심)
+  fetch_release_images.py  릴리스 zip에서 폰트·이미지 추출
+  apply_translations.py    MSG 포맷 디코드/인코드 라이브러리
+  g1n_*.py / koloc.py / loc_*.py   폰트 확장·이미지 한글화
+  patch_main.py / apply_hangul_kbd.py   exefs 한글화·한국어 입력기
+  extractor/          병합 romfs 추출기 (LibHac, .NET 6) — 키는 본인 것 사용
+  scratch/            1회성 디버그/수정 스크립트 (참고용)
+data/ko/          번역 데이터 (빌드에 실제로 쓰이는 것)
+  base/               일반 게임 MSG — 61,715 문자열
+  puk_115/            파워업키트 1.1.5 MSG_PK — 72,533 문자열
+  puk_117/            파워업키트 1.1.7 MSG_PK — 73,946 문자열
+translation/      사람이 읽고 고치기 좋은 원문/번역 배치 (초기 번역 작업 형식)
 docs/
-  FORMATS.md      리버스 엔지니어링한 파일 포맷 분석 (LINKDATA/KT/NSO/MSG/G1N/G1T/파워업키트 이중 프로그램)
-  BUILD.md        빌드 가이드
+  BUILD.md            패치 직접 만들기 (준비물·빌드·번역 수정·새 버전 대응)
+  INSTALL.md          설치 안내 (릴리스 zip에 동봉됨)
+  FORMATS.md          리버스 엔지니어링한 파일 포맷 분석
 ```
 
-빌드 방법은 [docs/BUILD.md](docs/BUILD.md), 포맷 분석은 [docs/FORMATS.md](docs/FORMATS.md) 참고.
+### 번역 데이터 형식
+`data/ko/<버전>/<파일>.bin.json` 은 **인덱스 기준**입니다. 게임 원문은 담지 않고
+"몇 번째 문자열을 어떤 한국어로 바꿀지"만 담으며, 번역하지 않은 항목은 `null`이라
+본인 게임 파일의 원문이 그대로 남습니다.
+
+```json
+{"file": "msgev.bin", "kind": "strtable", "count": 17916,
+ "ko": [null, "고호쿠의 다이묘 아자이 나가마사는…", null, "…"]}
+```
 
 ### 기여
-번역 개선은 `translation/korean/` 또는 `translation/korean_puk/` 의 `t` 값을 고쳐 PR 해주세요.
-(서식 토큰 `%s %d \n [bNNN]`, `<ESC>C?` 컬러 태그는 보존 필수)
+번역 개선은 `data/ko/<버전>/*.json` 의 해당 인덱스를 고쳐 PR 해주세요
+(`translation/korean*/` 의 `t` 값을 고치는 기존 방식도 환영합니다).
+
+- 서식 토큰 `%s %d \n \t [bNNN]`, `<ESC>C?` 컬러 태그는 **보존 필수**
+- `msggame`(초상화 캐릭터 대사)의 `\n`은 지우지 마세요 — 글자가 작아집니다
+  ([이유](tools/NOTE_dialogue_linebreak.md))
 
 ## 라이선스 / 고지
 - **팬 번역이며 코에이 테크모와 무관합니다. 게임 원본 데이터·에셋은 포함되어 있지 않습니다.**

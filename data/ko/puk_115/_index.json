@@ -1,0 +1,37 @@
+{
+ "msgbre.bin": {
+  "kind": "strtable",
+  "count": 3000,
+  "translated": 2217
+ },
+ "msgdata.bin": {
+  "kind": "strtable",
+  "count": 29210,
+  "translated": 23415
+ },
+ "msgev.bin": {
+  "kind": "strtable",
+  "count": 17913,
+  "translated": 14356
+ },
+ "msggame.bin": {
+  "kind": "msggame",
+  "count": 29337,
+  "translated": 28342
+ },
+ "msgire.bin": {
+  "kind": "strtable",
+  "count": 122,
+  "translated": 122
+ },
+ "msgstf.bin": {
+  "kind": "strtable",
+  "count": 20,
+  "translated": 0
+ },
+ "msgui.bin": {
+  "kind": "strtable",
+  "count": 5100,
+  "translated": 4081
+ }
+}

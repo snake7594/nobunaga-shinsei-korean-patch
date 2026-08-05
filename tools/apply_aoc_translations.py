@@ -13,8 +13,10 @@ from n16_reader import n16_unwrap, n16_wrap, read_section_strings, build_section
 from aoc_translations import AOC_TR
 import dlc_translations as T
 
-AOC = r'D:\nsw\rom\nobu16_powerupkit\aoc_extract'
-OUT = r'D:\nsw\rom\nobu16_powerupkit\puk_mod_aoc\atmosphere\contents'
+# 환경변수로 재지정 가능: AOC_SRC = 추가 시나리오 DLC 추출 폴더(romfs_<tid>/JP/*.n16),
+# AOC_OUT = 출력 폴더(<tid>/romfs/JP/*.n16 가 만들어짐)
+AOC = os.environ.get('AOC_SRC') or r'D:\nsw\rom\nobu16_powerupkit\aoc_extract'
+OUT = os.environ.get('AOC_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod_aoc\atmosphere\contents'
 
 TOKEN_RE = re.compile(r'<ESC>..|<[0-9A-F]{2}>|\\n|\\t|%[sd0-9]')
 def norm_tokens(s):
