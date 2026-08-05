@@ -119,6 +119,22 @@ python tools/build_patch.py --version 1.1.7 \
 | 이미지 | 한글 폰트·화면 이미지 배치 | `--images` 폴더 |
 | 패키징 | zip 생성(설치 안내 동봉) | `docs/INSTALL.md` |
 
+### ⚠️ 폰트 글리프 감사 (릴리스 전 필수)
+
+한글 폰트는 **"게임이 안 쓰는 일본어 글리프" 자리를 한글로 재활용**해 만듭니다. 그 판단을
+**옛 게임 버전 텍스트**로 하면, 새 버전에서 추가된 문구가 쓰는 글자를 덮어써 화면에서 깨집니다.
+실제로 1.1.5 기준으로 만든 폰트를 1.1.7에 그대로 쓰다가 **Joy-Con 2 버튼 아이콘(μ ν ξ ο)·
+PlayStation®의 ®·따옴표·크레딧 한자**가 깨진 적이 있습니다.
+
+```bash
+python tools/audit_glyphs.py \
+  --res build/1.1.7/contents/01007ab012872001/romfs/RES_JP_PK/res_lang_pk.bin --entry 16 \
+  --msg build/1.1.7/contents/01007ab012872001/romfs/MSG_PK/JP
+```
+
+`✅ 깨지는 문자 없음` 이 나와야 합니다. 깨진 문자가 나오면 §7의 폰트 재생성을
+**해당 게임 버전 텍스트 기준**으로 다시 하세요(`g1n_inplace_korean.py` 의 `PK_MSG_SRC` 등).
+
 ### 결과 검증
 
 배포본과 같은지 확인하려면 릴리스 zip과 파일별 해시를 비교하세요.

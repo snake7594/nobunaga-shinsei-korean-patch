@@ -35,9 +35,14 @@ def msggame_cps(dec,out):
         i=en+3
 
 used=set()
-PK=r'D:\nsw\rom\1.1.5\Program 1\romfs\MSG_PK\JP'
-BM=r'D:\nsw\rom\1.1.5\Program 0\romfs\MSG\JP'
-for f in ['msgdata.bin','msgev.bin','msgui.bin','msgbre.bin','msgire.bin','msgstf.bin']:
+# ⚠️ 반드시 **패치 대상 게임 버전**의 원본 텍스트를 넣을 것. 옛 버전 기준으로 만들면
+# 새 버전에서 추가된 문자(예: 1.1.7의 Joy-Con 2 버튼 아이콘 μ ν ξ ο, PlayStation®의 ®,
+# 새 크레딧 한자)가 쓰던 글리프를 한글로 재활용해 화면에서 깨진다.
+PK=os.environ.get('PK_MSG_SRC') or r'D:\nsw\rom\1.1.7\extract\Program 1\romfs\MSG_PK\JP'
+BM=os.environ.get('BASE_MSG_SRC') or r'D:\nsw\rom\1.1.7\extract\Program 0\romfs\MSG\JP'
+# 파일 목록을 고정하지 않고 폴더 전체를 훑는다(새 버전에서 파일이 추가돼도 누락 없음)
+for f in sorted(os.listdir(PK)):
+    if not f.endswith('.bin') or f=='msggame.bin': continue
     strtable_cps(kt_dec(open(os.path.join(PK,f),'rb').read()),used)
 msggame_cps(kt_dec(open(os.path.join(PK,'msggame.bin'),'rb').read()),used)
 for f in ['strdata.bin','ev_strdata.bin']: strtable_cps(kt_dec(open(os.path.join(BM,f),'rb').read()),used)
@@ -55,7 +60,7 @@ if os.path.isdir(DLCSRC):
             for s in _n16_strs2(dec,0,len(dec)):
                 for c in s: used.add(ord(c))
 # main null-terminated UTF-16 strings
-main=open(r'D:\nsw\rom\1.1.5\Program 1\exefs\main','rb').read()
+main=open(os.environ.get('MAIN_872001') or r'D:\nsw\rom\1.1.7\extract\Program 1\exefs\main','rb').read()
 def is_text(v): return v==0x20 or 0x30<=v<=0x7e or 0x3000<=v<=0x9fff or 0xf900<=v<=0xfaff or 0xff00<=v<=0xffef or 0xac00<=v<=0xd7a3
 i=0;n=len(main)-1
 while i<n-1:
@@ -74,6 +79,12 @@ while i<n-1:
     else: i+=2
 # also always-keep: kana, ascii, common punctuation/symbols
 for cp in list(range(0x3000,0x30FF))+list(range(0x20,0x7f))+list(range(0xFF00,0xFFF0)): used.add(cp)
+# 안전망: 텍스트 스캔에서 놓쳐도 절대 재활용하면 안 되는 구간
+#  0x2000-0x206F 일반 문장부호(‘ ’ “ ” … 등), 0x2100-0x214F 문자꼴 기호(® ™ 등),
+#  0x2190-0x21FF 화살표, 0x2500-0x257F 괘선(®가 ┐로 보이는 등 특수 매핑),
+#  0x0370-0x03FF 그리스 문자 = 게임의 버튼 아이콘 글리프(μ ν ξ ο …)
+for a,b in ((0x2000,0x2070),(0x2100,0x2150),(0x2190,0x2200),(0x2500,0x2580),(0x00A0,0x0100),(0x0370,0x0400)):
+    for cp in range(a,b): used.add(cp)
 print('used JP codepoints (keep):', len(used))
 
 # ---------- in-place Korean injection ----------
@@ -127,10 +138,11 @@ def inject(g1n, korean_cps):
     return bytes(g), total_added
 
 # ---------- Korean codepoints needed (from MSG_PK + DLC_PK translations) ----------
-OUT=r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\MSG_PK\JP'
-DLCOUT=os.environ.get('DLC_PK_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\DLC_PK\JP'
+OUT=os.environ.get('PK_MSG_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod_117\atmosphere\contents\01007ab012872001\romfs\MSG_PK\JP'
+DLCOUT=os.environ.get('DLC_PK_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod_117\atmosphere\contents\01007ab012872001\romfs\DLC_PK\JP'
 kor=set()
-for f in ['msgdata.bin','msgev.bin','msgui.bin','msgbre.bin','msgire.bin']:
+for f in sorted(os.listdir(OUT)):
+    if not f.endswith('.bin') or f=='msggame.bin': continue
     strtable_cps(kt_dec(open(os.path.join(OUT,f),'rb').read()),kor)
 msggame_cps(kt_dec(open(os.path.join(OUT,'msggame.bin'),'rb').read()),kor)
 if os.path.isdir(DLCOUT):
@@ -146,21 +158,34 @@ korean_cps=sorted(c for c in kor if 0xAC00<=c<=0xD7A3)
 print('Korean needed:', len(korean_cps))
 
 # ---------- build res_lang_pk (fonts injected in-place, v3-style repack) ----------
-PKRES=r'D:\nsw\rom\1.1.5\Program 1\romfs\RES_JP_PK\res_lang_pk.bin'
-OUTRES=r'D:\nsw\rom\nobu16_powerupkit\puk_mod\atmosphere\contents\01007ab012872001\romfs\RES_JP_PK\res_lang_pk.bin'
+# PK_RES_SRC : 폰트를 꺼낼 **원본(무손상)** res_lang_pk
+# PK_RES_BASE: 결과를 얹을 바탕 파일(기본=원본). 이미 이미지가 한글화된 파일을 주면
+#              폰트 엔트리(16·17)만 교체하므로 이미지 작업이 보존된다.
+PKRES=os.environ.get('PK_RES_SRC') or r'D:\nsw\rom\1.1.7\extract\Program 1\romfs\RES_JP_PK\res_lang_pk.bin'
+BASERES=os.environ.get('PK_RES_BASE') or PKRES
+OUTRES=os.environ.get('PK_RES_OUT') or r'D:\nsw\rom\nobu16_powerupkit\puk_mod_117\atmosphere\contents\01007ab012872001\romfs\RES_JP_PK\res_lang_pk.bin'
 pk=open(PKRES,'rb').read(); pt=toc(pk)
-out=bytearray(pk)
+base=open(BASERES,'rb').read(); bt=toc(base)
+assert len(bt)==len(pt), '바탕 파일의 엔트리 수가 원본과 다릅니다'
+out=bytearray(base)
+# 바탕 파일에서 각 엔트리가 실제로 쓸 수 있는 공간(다음 엔트리 시작까지)
+_starts=sorted(o for o,_ in bt)
+def slot_cap(off):
+    nxt=[s for s in _starts if s>off]
+    return (min(nxt) if nxt else len(base))-off
 for idx in (16,17):
-    off,orig_size=pt[idx]
+    off,orig_size=pt[idx]                      # 원본(무손상) 폰트를 꺼내 한글 주입
     font=kt_dec(pk[off:off+orig_size]); assert font[:8]==b'_N1G0000'
     print('entry%d:'%idx)
     newfont,added=inject(font,korean_cps)
-    assert len(newfont)==len(font)   # SAME decompressed size => fits buffer
-    ne=kt_wrap(pk[off:off+8],newfont)
-    assert len(ne)<=orig_size
-    out[off:off+orig_size]=ne+b'\x00'*(orig_size-len(ne))
-    struct.pack_into('<II',out,16+idx*8,off,len(ne))
-    print('   decompressed size %d (unchanged), compressed %d/%d'%(len(newfont),len(ne),orig_size))
+    assert len(newfont)==len(font)   # 압축 해제 크기 불변 => 872001 폰트 버퍼에 맞음
+    boff,bsize=bt[idx]                          # 바탕 파일의 슬롯에 기록
+    ne=kt_wrap(base[boff:boff+8],newfont)
+    cap=slot_cap(boff)
+    assert len(ne)<=cap, f'entry{idx}: 새 폰트 {len(ne)}B > 슬롯 {cap}B'
+    out[boff:boff+cap]=ne+b'\x00'*(cap-len(ne))
+    struct.pack_into('<II',out,16+idx*8,boff,len(ne))
+    print('   decompressed %d (unchanged), compressed %d / slot %d'%(len(newfont),len(ne),cap))
 open(OUTRES,'wb').write(out)
 print('\nwrote', OUTRES, 'size', len(out), '(unchanged:', len(out)==len(pk), ')')
 # verify
