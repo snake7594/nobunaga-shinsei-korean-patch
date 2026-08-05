@@ -142,9 +142,12 @@ def localize_badge(crop, ko, font_bytes):
     halo = cv2.dilate(mask, np.ones((7, 7), np.uint8), 2).astype(bool) & ~core & inner
     halo_lum = float(np.median(lum[halo])) if halo.sum() > 10 else float(np.median(lum[inner]))
     glyph_lum = lum[core]
-    dark_text = float(np.median(glyph_lum)) < halo_lum       # 밝은 바탕 위 어두운 글자?
-    q = 12 if dark_text else 88
-    thr = np.percentile(glyph_lum, q)
+    # 마스크에는 '획(진한 쪽)'과 '빛무리 가장자리(밝은 쪽)'가 함께 잡힌다. 중앙값으로
+    # 판단하면 색이 뒤집히므로, 주변 halo 와 **더 멀리 떨어진 쪽**을 글자색으로 고른다.
+    lo_thr = float(np.percentile(glyph_lum, 12))
+    hi_thr = float(np.percentile(glyph_lum, 88))
+    dark_text = abs(lo_thr - halo_lum) >= abs(hi_thr - halo_lum)
+    thr = lo_thr if dark_text else hi_thr
     pick = core & ((lum <= thr) if dark_text else (lum >= thr))
     if pick.sum() < 6:
         pick = core
