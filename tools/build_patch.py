@@ -105,6 +105,11 @@ def step_exefs(args, cfg, out):
             run([sys.executable, os.path.join(TOOLS, 'apply_hangul_kbd.py')],
                 env={'IN': dst, 'OUT': tmp}, cwd=TOOLS)
             os.replace(tmp, dst)
+            # 원본 패치는 이름 입력 화면 한 곳만 우회한다 — 공주 이름 등 나머지 화면도 확장
+            print('[exefs] 한국어 입력 우회 확장 (공주 이름 등)')
+            run([sys.executable, os.path.join(TOOLS, 'patch_hangul_kbd_extra.py')],
+                env={'IN': dst, 'OUT': tmp}, cwd=TOOLS)
+            os.replace(tmp, dst)
 
 
 def step_images(args, cfg, out):
