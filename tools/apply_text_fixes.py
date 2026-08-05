@@ -19,7 +19,7 @@
   python tools/apply_text_fixes.py --data data/ko/puk_117 \
       --jp "<...>/Program 1/romfs/MSG_PK/JP" --fixes data/fixes/text_fixes.json [--dry]
 """
-import sys, os, json, struct, argparse
+import sys, os, re, json, struct, argparse
 sys.stdout.reconfigure(encoding='utf-8')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import apply_translations as A
@@ -105,6 +105,28 @@ def main():
         n_char += hit
         print(f'  [char] {hit}회 / {strings}개 문자열   {old!r} U+{ord(old):04X} -> {new!r} U+{ord(new):04X}')
 
+    # --- regex 규칙 (원문 한자 조건부 낱말 치환) ---
+    # 같은 한글이라도 다른 낱말의 일부일 수 있어(교↔교고쿠), **원문에 해당 한자가 있을 때만**
+    # 바꾼다. 경계는 정규식으로 지정한다.
+    n_rx = 0
+    for fx in [f for f in fixes if f.get('kind') == 'regex']:
+        rx = re.compile(fx['old'])
+        need = fx.get('jp')
+        hit = strings = 0
+        for name, t in tables.items():
+            jps = jp_of(t)
+            for i, v in enumerate(t['ko']):
+                if not v:
+                    continue
+                if need and not (i < len(jps) and jps[i] and need in jps[i]):
+                    continue
+                v2, k = rx.subn(fx['new'], v)
+                if k:
+                    t['ko'][i] = v2; hit += k; strings += 1
+        n_rx += hit
+        print(f"  [regex] {hit}회 / {strings}개 문자열   {fx['old']} -> {fx['new']}"
+              + (f"  (원문에 {need} 있을 때만)" if need else ''))
+
     # --- blob 규칙 ---
     blob_fixes = [f for f in fixes if f.get('kind') == 'blob']
     if blob_fixes:
@@ -135,7 +157,7 @@ def main():
             if hit == 0:
                 print('     ⚠ 일치 없음')
 
-    print(f'\n합계: string {n_str}건, char {n_char}회, blob {n_blob}건')
+    print(f'\n합계: string {n_str}건, char {n_char}회, regex {n_rx}회, blob {n_blob}건')
     if a.dry:
         print('(DRY-RUN — 저장하지 않음)')
         return
